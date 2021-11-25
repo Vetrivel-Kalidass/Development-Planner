@@ -5,10 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { DragndropDirective } from './dragndrop.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+ 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DragDropComponent,
+    DragndropDirective
   ],
   imports: [
     BrowserModule,
@@ -18,7 +25,9 @@ import { environment } from '../environments/environment';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
