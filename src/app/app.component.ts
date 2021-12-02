@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { Component, HostBinding } from '@angular/core';
 import { TinyColor } from '@ctrl/tinycolor';
+import { AppValues } from './shared/data';
 
 // declare const tinycolor: any;
 
@@ -16,6 +18,7 @@ export interface Color {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @HostBinding() className: string = '';
   title = 'pwa-app';
 
   primaryColor = '#bb0000';
@@ -23,7 +26,9 @@ export class AppComponent {
   primaryColorPalette: Color[] = [];
   accentColorPalette: Color[] = [];
 
-  constructor() {
+  constructor(
+    private _overlay: OverlayContainer
+  ) {
     this.savePrimaryColor();
     this.saveAccentColor();
   }
@@ -37,6 +42,12 @@ export class AppComponent {
     this.accentColorPalette = computeColors(this.accentColor);
     updateTheme(this.accentColorPalette, 'accent');
   }
+
+  toggleDarkMode() {
+    this.className = this.className.includes(AppValues.darkMode) ? '' : AppValues.darkMode;
+    this._overlay.getContainerElement().classList.toggle(AppValues.darkMode);
+  }
+
 }
 
 function updateTheme(colors: Color[], theme: string) {
