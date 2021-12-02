@@ -5,15 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { DragndropDirective } from './dragndrop.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MaterialModule } from './material/material.module';
+import { FormsModule } from '@angular/forms';
  
 
 @NgModule({
   declarations: [
     AppComponent,
-    DragndropDirective
   ],
   imports: [
     BrowserModule,
@@ -25,7 +25,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
       registrationStrategy: 'registerWhenStable:30000'
     }),
     BrowserAnimationsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
