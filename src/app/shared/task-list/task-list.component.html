@@ -1,24 +1,199 @@
-<mat-card class="task-group no-box-shadow">
-    <div class="mat-headline-2 mb-8">TODAY, AUG 4/2020</div>
 
-    <div class="task-item" mat-ripple>
-        <mat-checkbox></mat-checkbox>
-        <div class="details">
-            <div class="mat-headline-1 mb-0">Go fishing with Stephen</div>
-            <div class="mat-caption mb-0">9:00 AM</div>
+<mat-card class="task-group no-box-shadow">
+    <div class="mat-headline-2 mb-8">TODAY, AUG 5/2020</div>
+
+    <mat-expansion-panel #exp class="task-item" disabled hideToggle>
+        <mat-expansion-panel-header>
+            <mat-checkbox></mat-checkbox>
+            <div class="details">
+                <a (click)="exp.toggle()">
+                    <div class="mat-headline-1 mb-0">Go fishing with Stephen</div>
+                    <div class="mat-caption mb-0">9:00 AM</div>
+                </a>
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #moreOptions="matMenu">
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
+        </mat-expansion-panel-header>
+        <div class="mat-body-2">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
+            necessitatibus eos deleniti culpa rerum illum doloribus cumque. Quae,
+            aliquid autem. Nihil explicabo suscipit aut, vel aliquid facilis esse at ea!
         </div>
-        <button mat-icon-button [matMenuTriggerFor]="moreOptions">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #moreOptions="matMenu">
-            <button mat-menu-item>
-              <mat-icon class="material-icons-outlined">edit</mat-icon>
-              <span>Edit</span>
+    </mat-expansion-panel>
+</mat-card>
+<mat-card class="task-group no-box-shadow">
+    <div class="mat-headline-2 mb-8">TODAY, AUG 5/2020</div>
+
+    <mat-expansion-panel #exp class="task-item" disabled hideToggle>
+        <mat-expansion-panel-header>
+            <mat-checkbox></mat-checkbox>
+            <div class="details">
+                <a (click)="exp.toggle()">
+                    <div class="mat-headline-1 mb-0">Go fishing with Stephen</div>
+                    <div class="mat-caption mb-0">9:00 AM</div>
+                </a>
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                <mat-icon>more_vert</mat-icon>
             </button>
-            <button mat-menu-item>
-              <mat-icon class="material-icons-outlined">delete</mat-icon>
-              <span>Delete</span>
+            <mat-menu #moreOptions="matMenu">
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
+        </mat-expansion-panel-header>
+        <div class="mat-body-2">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
+            necessitatibus eos deleniti culpa rerum illum doloribus cumque. Quae,
+            aliquid autem. Nihil explicabo suscipit aut, vel aliquid facilis esse at ea!
+        </div>
+    </mat-expansion-panel>
+</mat-card>
+<mat-card class="task-group no-box-shadow">
+    <div class="mat-headline-2 mb-8">TODAY, AUG 5/2020</div>
+
+    <mat-expansion-panel #exp class="task-item" disabled hideToggle>
+        <mat-expansion-panel-header>
+            <mat-checkbox></mat-checkbox>
+            <div class="details">
+                <a (click)="exp.toggle()">
+                    <div class="mat-headline-1 mb-0">Go fishing with Stephen</div>
+                    <div class="mat-caption mb-0">9:00 AM</div>
+                </a>
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                <mat-icon>more_vert</mat-icon>
             </button>
-          </mat-menu>          
-    </div>
+            <mat-menu #moreOptions="matMenu">
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
+        </mat-expansion-panel-header>
+        <div class="mat-body-2">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
+            necessitatibus eos deleniti culpa rerum illum doloribus cumque. Quae,
+            aliquid autem. Nihil explicabo suscipit aut, vel aliquid facilis esse at ea!
+        </div>
+    </mat-expansion-panel>
+</mat-card>
+<mat-card class="task-group no-box-shadow">
+    <div class="mat-headline-2 mb-8">TODAY, AUG 5/2020</div>
+
+    <mat-expansion-panel #exp class="task-item" disabled hideToggle>
+        <mat-expansion-panel-header>
+            <mat-checkbox></mat-checkbox>
+            <div class="details">
+                <a (click)="exp.toggle()">
+                    <div class="mat-headline-1 mb-0">Go fishing with Stephen</div>
+                    <div class="mat-caption mb-0">9:00 AM</div>
+                </a>
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #moreOptions="matMenu">
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
+        </mat-expansion-panel-header>
+        <div class="mat-body-2">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
+            necessitatibus eos deleniti culpa rerum illum doloribus cumque. Quae,
+            aliquid autem. Nihil explicabo suscipit aut, vel aliquid facilis esse at ea!
+        </div>
+    </mat-expansion-panel>
+</mat-card>
+<mat-card class="task-group no-box-shadow">
+    <div class="mat-headline-2 mb-8">TODAY, AUG 5/2020</div>
+
+    <mat-expansion-panel #exp class="task-item" disabled hideToggle>
+        <mat-expansion-panel-header>
+            <mat-checkbox></mat-checkbox>
+            <div class="details">
+                <a (click)="exp.toggle()">
+                    <div class="mat-headline-1 mb-0">Go fishing with Stephen</div>
+                    <div class="mat-caption mb-0">9:00 AM</div>
+                </a>
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #moreOptions="matMenu">
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
+        </mat-expansion-panel-header>
+        <div class="mat-body-2">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
+            necessitatibus eos deleniti culpa rerum illum doloribus cumque. Quae,
+            aliquid autem. Nihil explicabo suscipit aut, vel aliquid facilis esse at ea!
+        </div>
+    </mat-expansion-panel>
+</mat-card>
+<mat-card class="task-group no-box-shadow">
+    <div class="mat-headline-2 mb-8">TODAY, AUG 5/2020</div>
+
+    <mat-expansion-panel #exp class="task-item" disabled hideToggle>
+        <mat-expansion-panel-header>
+            <mat-checkbox></mat-checkbox>
+            <div class="details">
+                <a (click)="exp.toggle()">
+                    <div class="mat-headline-1 mb-0">Go fishing with Stephen</div>
+                    <div class="mat-caption mb-0">9:00 AM</div>
+                </a>
+            </div>
+            <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #moreOptions="matMenu">
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon class="material-icons-outlined">delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
+        </mat-expansion-panel-header>
+        <div class="mat-body-2">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
+            necessitatibus eos deleniti culpa rerum illum doloribus cumque. Quae,
+            aliquid autem. Nihil explicabo suscipit aut, vel aliquid facilis esse at ea!
+        </div>
+    </mat-expansion-panel>
 </mat-card>

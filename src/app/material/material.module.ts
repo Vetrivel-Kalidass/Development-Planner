@@ -27,6 +27,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatExpansionModule } from '@angular/material/expansion'; 
 
 const MaterialComponent = [
   MatCardModule,
@@ -55,6 +57,8 @@ const MaterialComponent = [
   MatChipsModule,
   MatDialogModule,
   MatCheckboxModule,
+  MatBottomSheetModule,
+  MatExpansionModule,
 ];
 
 @NgModule({

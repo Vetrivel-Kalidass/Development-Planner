@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MainActionsMenuComponent } from '../main-actions-menu/main-actions-menu.component';
 
 @Component({
   selector: 'app-mini-navbar',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiniNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _bottomSheet: MatBottomSheet
+  ) {}
+
+  openMainActionMenu(): void {
+    this._bottomSheet.open(MainActionsMenuComponent);
+  }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,10 @@
+.form-container {
+	width: calc(95vw - 48px);
+	min-height: 90vh;
+}
+form {
+	height: calc(90vh - 66px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}

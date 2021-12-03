@@ -90,36 +90,54 @@ mat-toolbar.top-bar {
 mat-card.task-group {
 	margin: 16px 8px;
 
-	.mat-ripple.task-item {
-		padding: 10px 16px;
-		display: flex;
-		align-items: center;
+	mat-expansion-panel.task-item {
+		padding: 8px 0px !important;
 		box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 		margin-bottom: 8px;
 		border-radius: 4px;
 
-		mat-checkbox {
-			margin-right: 24px;
+		mat-expansion-panel-header {
+			padding: 0px !important;
+
+			.mat-content {
+				padding: 0px 16px;
+				align-items: center;
+
+				mat-checkbox {
+					margin-right: 24px;
+				}
+				.details {
+					max-width: 324px;
+					cursor: pointer;
+				}
+				.details.complete {
+					text-decoration: line-through;
+				}
+				button.mat-icon-button {
+					position: absolute;
+					right: 8px;
+				}
+
+			}
 		}
-		.details {
-			max-width: 324px;
-		}
-		.details.complete {
-			text-decoration: line-through;
-		}
-		button.mat-icon-button {
-			position: absolute;
-			right: 8px;
+
+		.mat-expansion-panel-header[aria-disabled="true"] {
+			color: inherit !important;
 		}
 		&::after {
 			content: " ";
 			width: 6px;
-			height: 30px;
+			height: calc(100% - 32px);
 			background: #344d3a;
-			right: 0;
 			position: absolute;
+			top: 16px;
+			right: 0;
 			border-radius: 2px;
 		}
 	}
 
+}
+
+.cdk-overlay-pane.full-view-dialog {
+	max-width: 95vw !important;
 }
