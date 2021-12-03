@@ -86,3 +86,21 @@ mat-toolbar.top-bar {
 		// }
 	}
 }
+
+mat-card.task-group {
+	margin: 16px 8px;
+
+	.mat-ripple.task-item {
+		padding: 8px 16px;
+		display: flex;
+		align-items: center;
+
+		mat-checkbox {
+			margin-right: 24px;
+		}
+		.details {
+			max-width: 324px;
+		}
+	}
+
+}

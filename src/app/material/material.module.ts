@@ -26,6 +26,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const MaterialComponent = [
   MatCardModule,
@@ -53,6 +54,7 @@ const MaterialComponent = [
   MatTooltipModule,
   MatChipsModule,
   MatDialogModule,
+  MatCheckboxModule,
 ];
 
 @NgModule({

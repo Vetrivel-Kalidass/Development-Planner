@@ -21,8 +21,8 @@ export class AppComponent {
   @HostBinding() className: string = '';
   title = 'pwa-app';
 
-  primaryColor = '#bb0000';
-  accentColor = '#0000aa';
+  primaryColor = '#FFDE59';
+  accentColor = '#323232';
   primaryColorPalette: Color[] = [];
   accentColorPalette: Color[] = [];
 
@@ -31,6 +31,12 @@ export class AppComponent {
   ) {
     this.savePrimaryColor();
     this.saveAccentColor();
+    // this.toggleDarkMode();
+    
+    // window.addEventListener("scroll", function () {
+    //   const header = document.querySelector("nb-layout-header");
+    //   window.scrollY === 0 ? header.classList.add("plain-header") : header.classList.remove("plain-header");
+    // });
   }
 
   savePrimaryColor() {
