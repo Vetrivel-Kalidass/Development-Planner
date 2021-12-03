@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskItem, TaskServiceService } from 'src/app/core/task-service.service';
+import { CreateTaskComponent } from '../create-task/create-task.component';
 
 @Component({
   selector: 'app-task-list',
@@ -7,15 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskListComponent implements OnInit {
   
+  @Input() allTasks: TaskItem[] | null | undefined;
+  today!: string;
+
   indexExpanded: number = -1;
 
-  constructor() { }
+  constructor(
+    private _taskService: TaskServiceService,
+    private _matDialog: MatDialog
+  ) {
+    this.today = new Date().toLocaleDateString();
+   }
 
   ngOnInit(): void {
   }
 
-  togglePanels(index: number) {
-      this.indexExpanded = index == this.indexExpanded ? -1 : index;
+  togglePanels(index: number, description: string | undefined) {
+    if (!description?.length) return;
+    this.indexExpanded = index == this.indexExpanded ? -1 : index;
+  }
+
+  checkBoxChange(task: TaskItem) {
+    this._taskService.editTask({ ...task, completed: !task.completed });
+  }
+
+  editTask(task: TaskItem) {
+    const dialogRef = this._matDialog.open(CreateTaskComponent, { panelClass: "full-view-dialog", data: task });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
+  deleteTask(task: TaskItem) {
+    this._taskService.deleteTask(task);
   }
 
 }

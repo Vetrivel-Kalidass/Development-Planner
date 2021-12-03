@@ -5,7 +5,7 @@ import { MaterialModule } from '../material/material.module';
 import { TaskListComponent } from './task-list/task-list.component';
 import { MainActionsMenuComponent } from './main-actions-menu/main-actions-menu.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +19,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     MiniNavbarComponent,
