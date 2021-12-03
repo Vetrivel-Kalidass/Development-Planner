@@ -91,15 +91,34 @@ mat-card.task-group {
 	margin: 16px 8px;
 
 	.mat-ripple.task-item {
-		padding: 8px 16px;
+		padding: 10px 16px;
 		display: flex;
 		align-items: center;
+		box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+		margin-bottom: 8px;
+		border-radius: 4px;
 
 		mat-checkbox {
 			margin-right: 24px;
 		}
 		.details {
 			max-width: 324px;
+		}
+		.details.complete {
+			text-decoration: line-through;
+		}
+		button.mat-icon-button {
+			position: absolute;
+			right: 8px;
+		}
+		&::after {
+			content: " ";
+			width: 6px;
+			height: 30px;
+			background: #344d3a;
+			right: 0;
+			position: absolute;
+			border-radius: 2px;
 		}
 	}
 

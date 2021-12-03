@@ -4,9 +4,20 @@
     </div>
 
     <div class="options-menu">
-        <button mat-icon-button>
+        <button mat-icon-button [matMenuTriggerFor]="tuneOptions">
             <mat-icon class="material-icons-outlined">tune</mat-icon>
         </button>
+          <mat-menu #tuneOptions="matMenu">
+            <button mat-menu-item>
+              <span>Incompleted Tasks</span>
+            </button>
+            <button mat-menu-item>
+              <span>Completed Tasks</span>
+            </button>
+            <button mat-menu-item>
+              <span>All Tasks</span>
+            </button>
+          </mat-menu>      
     </div>
 
     <nav mat-tab-nav-bar color="accent">
