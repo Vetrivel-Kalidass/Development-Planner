@@ -2,7 +2,10 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
 
-@import './styles/var';
+@import './styles/var.styles';
+@import './styles/components.styles';
+@import './styles/box.styles';
+@import './styles/common.styles';
 
 @include mat-core();
 @include angular-material-theme($dynamic-light-app-theme);

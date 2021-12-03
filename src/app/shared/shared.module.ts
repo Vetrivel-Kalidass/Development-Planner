@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+import { MiniNavbarComponent } from './mini-navbar/mini-navbar.component';
+import { MaterialModule } from '../material/material.module';
 
 
 
 @NgModule({
   declarations: [
+    MiniNavbarComponent
   ],
   imports: [
     CommonModule,
-    CarouselModule
+    MaterialModule
+  ],
+  exports: [
+    MiniNavbarComponent
   ]
 })
 export class SharedModule { }

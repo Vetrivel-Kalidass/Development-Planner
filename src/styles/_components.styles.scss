@@ -1,0 +1,51 @@
+mat-toolbar.miniNavbar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	height: 60px;
+
+    ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+		display: flex;
+		align-items: center;
+    }
+
+	ul { 
+		width: 100%;
+		justify-content: space-around;
+	}
+
+	ul > li.nav-action {
+		justify-content: center;
+	}
+		
+	ul > li.nav-action.side {
+		width: 25%;
+		height: 60px;
+
+		button {
+			width: 100%;
+			height: 100%;
+			
+			mat-icon, i {
+				font-size: 30px;
+				line-height: 30px;
+				width: 30px;
+				height: 30px;
+			}
+		}
+
+	}
+
+	li.nav-action.middle {
+		button {
+			position: relative;
+			top: -10px;
+		}
+	}
+}
