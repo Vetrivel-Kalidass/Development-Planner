@@ -49,3 +49,40 @@ mat-toolbar.miniNavbar {
 		}
 	}
 }
+
+mat-toolbar.top-bar {
+	height: fit-content;
+	min-height: 85px;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	padding-top: 16px;
+
+	.mat-headline {
+		line-height: 40px;
+		text-align: center;
+	}
+
+	.options-menu {
+			position: absolute;
+			right: 16px;
+			top: 16px;
+	}
+
+	nav.mat-tab-nav-bar.mat-tab-header {
+		width: 100%;
+
+		.mat-tab-links {
+			justify-content: space-evenly;
+
+			.mat-tab-link {
+				width: 50%;
+				padding: 0;
+			}
+		}
+
+		// mat-ink-bar {
+		// 	width: 40px !important;
+		// }
+	}
+}
