@@ -1,8 +1,8 @@
 {
-  "name": "pwa-app",
-  "short_name": "pwa-app",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "DP (Development Planner)",
+  "short_name": "DP",
+  "theme_color": "#FFDE59",
+  "background_color": "#323232",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

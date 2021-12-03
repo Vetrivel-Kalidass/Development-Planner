@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pwa-app": {
+    "development-planner": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pwa-app",
+            "outputPath": "dist/development-planner",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/_redirects"
             ],
             "styles": [
               "src/styles.scss"
@@ -71,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "pwa-app:build:production"
+              "browserTarget": "development-planner:build:production"
             },
             "development": {
-              "browserTarget": "pwa-app:build:development"
+              "browserTarget": "development-planner:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pwa-app:build"
+            "browserTarget": "development-planner:build"
           }
         },
         "test": {
@@ -95,7 +96,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/_redirects"
             ],
             "styles": [
               "src/styles.scss"
@@ -106,5 +108,5 @@
       }
     }
   },
-  "defaultProject": "pwa-app"
+  "defaultProject": "development-planner"
 }

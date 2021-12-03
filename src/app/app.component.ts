@@ -19,7 +19,7 @@ export interface Color {
 })
 export class AppComponent {
   @HostBinding() className: string = '';
-  title = 'pwa-app';
+  title = 'development-planner';
 
   primaryColor = '#FFDE59';
   accentColor = '#323232';
