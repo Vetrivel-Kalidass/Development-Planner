@@ -8,6 +8,7 @@ import { CreateTaskComponent } from './create-task/create-task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateTagComponent } from './create-tag/create-tag.component';
 import { CoreModule } from '../core/core.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -24,7 +25,8 @@ import { CoreModule } from '../core/core.module';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    CoreModule
+    CoreModule,
+    RouterModule
   ],
   exports: [
     MiniNavbarComponent,

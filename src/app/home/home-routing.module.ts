@@ -8,6 +8,7 @@ const routes: Routes = [
     component: HomeComponent, 
     children: [
       { path: 'work-list', loadChildren: () => import('./work-list/work-list.module').then(m => m.WorkListModule) },
+      { path: 'groups', loadChildren: () => import('./groups/groups.module').then(m => m.GroupsModule) },
       { path: '', pathMatch: 'full', redirectTo: 'work-list' },
       { path: '**', redirectTo: 'work-list' }
     ]

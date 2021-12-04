@@ -46,6 +46,7 @@ html, body, main#mainContainer {
     color: var(--theme-accent-contrast-500) !important;
 }
 
+/* DIALOG FORMS */
 mat-dialog-container {
   .form-container {
     width: calc(95vw - 48px);
@@ -57,6 +58,20 @@ mat-dialog-container {
     flex-direction: column;
     justify-content: space-between;
   }
+}
+
+/* GROUPS TILES */
+.group-tiles-container {
+  width: calc(100% - 20px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 185px));
+  grid-gap: 10px;
+  padding: 10px;
+
+  .mat-card-header {
+      height: 80px;
+  }
+
 }
 
 

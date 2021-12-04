@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { Router } from '@angular/router';
 import { MainActionsMenuComponent } from '../main-actions-menu/main-actions-menu.component';
 
 @Component({
@@ -10,7 +11,8 @@ import { MainActionsMenuComponent } from '../main-actions-menu/main-actions-menu
 export class MiniNavbarComponent implements OnInit {
 
   constructor(
-    private _bottomSheet: MatBottomSheet
+    private _bottomSheet: MatBottomSheet,
+    private _router: Router
   ) {}
 
   openMainActionMenu(): void {
@@ -18,6 +20,10 @@ export class MiniNavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  navigateTo(path: string) {
+    this._router.navigate(['home', path]);
   }
 
 }

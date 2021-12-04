@@ -5,6 +5,7 @@ import { LocalStorageService } from './local-storage.service';
 
 export enum AppValues {
   tasks = "tasks",
+  tags = "tags",
 }
 
 @Injectable()

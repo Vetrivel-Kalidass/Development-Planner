@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { TaskServiceService } from 'src/app/core/task-service.service';
+import { TagService } from 'src/app/core/tag.service';
 import { TagItem } from 'src/app/models';
 
 @Component({
@@ -18,7 +18,7 @@ export class CreateTagComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data: TagItem | null | undefined,
     private _matDialogRef: MatDialogRef<CreateTagComponent>,
     private _formBuilder: FormBuilder,
-    private _taskService: TaskServiceService
+    private _tagService: TagService
   ) {
     this.selectedTagItem = this.data ? { ...this.data } : null;
     this.createTagItemForm(this.selectedTagItem);
@@ -38,10 +38,14 @@ export class CreateTagComponent implements OnInit {
   submitForm() {
     if (this.tagItemForm.invalid) return;
     if (!this.selectedTagItem) {
-      this._taskService.createTask(this.tagItemForm.value);
+      this._tagService.createTag(this.tagItemForm.value);
     }
     else {
-      this._taskService.editTask(this.tagItemForm.value);
+      const modifiedTag: TagItem = {
+        ...this.selectedTagItem,
+        ...this.tagItemForm.value
+      }
+      this._tagService.editTag(modifiedTag);
     }
     this._matDialogRef.close();
   }

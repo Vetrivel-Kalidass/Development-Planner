@@ -1,12 +1,12 @@
 <mat-toolbar class="miniNavbar" color="primary">
     <ul>
         <li class="nav-action side">
-            <button mat-button>
+            <button (click)="navigateTo('work-list')" mat-button>
                 <mat-icon class="material-icons-outlined">splitscreen</mat-icon>
             </button>
         </li>
         <li class="nav-action side">
-            <button mat-button>
+            <button (click)="navigateTo('groups')" mat-button>
                 <mat-icon class="material-icons-outlined">grid_view</mat-icon>
             </button>
         </li>
@@ -16,12 +16,12 @@
             </button>
         </li>
         <li class="nav-action side">
-            <button mat-button>
+            <button (click)="navigateTo('work-list')" mat-button>
                 <mat-icon class="material-icons-outlined">checklist</mat-icon>
             </button>
         </li>
         <li class="nav-action side">
-            <button mat-button>
+            <button (click)="navigateTo('work-list')" mat-button>
                 <mat-icon class="material-icons-outlined">person_outline</mat-icon>
             </button>
         </li>

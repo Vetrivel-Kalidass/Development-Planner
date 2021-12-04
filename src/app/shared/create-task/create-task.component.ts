@@ -42,7 +42,11 @@ export class CreateTaskComponent implements OnInit {
       this._taskService.createTask(this.taskItemForm.value);
     }
     else {
-      this._taskService.editTask(this.taskItemForm.value);
+      const modifiedTask: TaskItem = {
+        ...this.selectedTaskItem,
+        ...this.taskItemForm.value
+      }
+      this._taskService.editTask(modifiedTask);
     }
     this._matDialogRef.close();
   }
