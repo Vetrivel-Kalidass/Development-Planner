@@ -6,6 +6,8 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { MainActionsMenuComponent } from './main-actions-menu/main-actions-menu.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateTagComponent } from './create-tag/create-tag.component';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -14,13 +16,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MiniNavbarComponent,
     TaskListComponent,
     MainActionsMenuComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    CreateTagComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ],
   exports: [
     MiniNavbarComponent,

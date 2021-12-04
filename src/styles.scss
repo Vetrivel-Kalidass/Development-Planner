@@ -46,6 +46,19 @@ html, body, main#mainContainer {
     color: var(--theme-accent-contrast-500) !important;
 }
 
+mat-dialog-container {
+  .form-container {
+    width: calc(95vw - 48px);
+    min-height: 90vh;
+  }
+  form {
+    height: calc(90vh - 66px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
 
 /* SCROLL BAR STYLES */
   html *::-webkit-scrollbar {

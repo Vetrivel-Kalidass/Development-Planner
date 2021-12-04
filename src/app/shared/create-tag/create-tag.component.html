@@ -1,0 +1,33 @@
+<div class="form-container d-flex flex-col">
+    <h2 mat-dialog-title class="mb-4">Create Tag</h2>
+    <mat-divider class="mb-16"></mat-divider>
+    <form *ngIf="tagItemForm" [formGroup]="tagItemForm" (ngSubmit)="submitForm()">
+        <mat-dialog-content class="d-flex flex-col">
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" formControlName="title" placeholder="eg: Cool Theme">
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Description</mat-label>
+                <textarea matInput type="text" formControlName="description" placeholder="eg: Buy stocks in large scale" rows="6"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Tag Color</mat-label>
+                <input matInput type="text" formControlName="color" />
+                <input matSuffix #colorPicker class="w-50" type="color" id="tagColor" (change)="patchColor($event)">
+            </mat-form-field>
+
+            <!-- <div class="d-flex align-items-center mb-16">
+                <label class="mr-10" for="tagColor">Tag color:</label>
+            </div> -->
+
+        </mat-dialog-content>
+
+        <mat-dialog-actions class="p-0" align="end">
+            <button mat-button type="button" mat-dialog-close>Cancel</button>
+            <button mat-button type="submit" cdkFocusInitial>Create</button>
+        </mat-dialog-actions>
+    </form>
+</div>

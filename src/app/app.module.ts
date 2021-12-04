@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
  
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatProgressBarModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

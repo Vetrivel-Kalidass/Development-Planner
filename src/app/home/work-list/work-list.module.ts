@@ -5,6 +5,7 @@ import { WorkListRoutingModule } from './work-list-routing.module';
 import { WorkListComponent } from './work-list.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     WorkListRoutingModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ]
 })
 export class WorkListModule { }

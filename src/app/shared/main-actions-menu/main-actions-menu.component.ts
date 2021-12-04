@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MatDialog } from '@angular/material/dialog';
+import { CreateTagComponent } from '../create-tag/create-tag.component';
 import { CreateTaskComponent } from '../create-task/create-task.component';
 
 @Component({
@@ -20,6 +21,15 @@ export class MainActionsMenuComponent implements OnInit {
 
   createTask() {
     const dialogRef = this._matDialog.open(CreateTaskComponent, { panelClass: "full-view-dialog" });
+    this._bottomSheetRef.dismiss();
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  createTag() {
+    const dialogRef = this._matDialog.open(CreateTagComponent, { panelClass: "full-view-dialog" });
     this._bottomSheetRef.dismiss();
   
     dialogRef.afterClosed().subscribe(result => {
