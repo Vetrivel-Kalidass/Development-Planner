@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { TaskItem, TaskServiceService } from 'src/app/core/task-service.service';
+import { TaskServiceService } from 'src/app/core/task-service.service';
+import { TaskItem } from 'src/app/models';
 import { CreateTaskComponent } from '../create-task/create-task.component';
 
 @Component({
@@ -44,6 +45,10 @@ export class TaskListComponent implements OnInit {
 
   deleteTask(task: TaskItem) {
     this._taskService.deleteTask(task);
+  }
+  
+  trackByFn(index: number, item: object): number { 
+    return index; 
   }
 
 }

@@ -12,8 +12,6 @@
 
 .dark-mode {
     @include angular-material-theme($dynamic-dark-app-theme);
-    background: $mat-dark-background;
-    color: $mat-dark-text;
 }
 
 @include angular-material-typography($dynamic-typography);
@@ -34,9 +32,31 @@ html, body, main#mainContainer {
 
 .dark-mode main#mainContainer {
     background: $mat-dark-background;
-    color: $mat-dark-text;
+    // color: $mat-dark-text;
 
     .bg-disabled {
         background-color: $mat-dark-disabled-list-option !important;
     }
 }
+
+.mat-primary {
+    color: var(--theme-primary-contrast-500) !important;
+}
+.mat-accent {
+    color: var(--theme-accent-contrast-500) !important;
+}
+
+
+/* SCROLL BAR STYLES */
+  html *::-webkit-scrollbar {
+    width: 4px !important;
+    height: 4px !important;
+  }
+  html *::-webkit-scrollbar-thumb {
+    background: var(--theme-accent-500) !important;
+    cursor: pointer;
+    border-radius: 0.15625rem;
+  }
+  html *::-webkit-scrollbar-track {
+    background: transparent !important;
+  }

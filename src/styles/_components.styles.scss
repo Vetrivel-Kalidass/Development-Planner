@@ -107,8 +107,14 @@ mat-card.task-group {
 					margin-right: 24px;
 				}
 				.details {
-					max-width: 324px;
+					max-width: 230px;
 					cursor: pointer;
+					* {
+						max-width: 100%;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						overflow: hidden;
+					}
 				}
 				.details.complete {
 					text-decoration: line-through;
@@ -118,6 +124,17 @@ mat-card.task-group {
 					right: 8px;
 				}
 
+			}
+		}
+
+		.mat-expansion-panel-body {
+			padding: 0 22px 16px 16px !important;
+
+			* {
+				width: 100%;
+				white-space: pre-wrap;
+				word-break: break-word;
+				overflow: hidden;
 			}
 		}
 

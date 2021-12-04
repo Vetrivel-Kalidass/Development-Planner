@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TaskItem, TaskServiceService } from 'src/app/core/task-service.service';
+import { TaskServiceService } from 'src/app/core/task-service.service';
+import { TaskItem } from 'src/app/models';
 
 @Component({
   selector: 'app-create-task',

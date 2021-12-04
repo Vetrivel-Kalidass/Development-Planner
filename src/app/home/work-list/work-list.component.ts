@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TaskItem, TaskServiceService } from 'src/app/core/task-service.service';
+import { TaskServiceService } from 'src/app/core/task-service.service';
+import { TaskItem } from 'src/app/models';
 
 @Component({
   selector: 'app-work-list',

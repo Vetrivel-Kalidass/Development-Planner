@@ -3,14 +3,11 @@ import { Component, HostBinding } from '@angular/core';
 import { TinyColor } from '@ctrl/tinycolor';
 import { AppValues } from './shared/data';
 
-// declare const tinycolor: any;
-
-export interface Color {
+interface ColorItem {
   name: string;
   hex: string;
   darkContrast: boolean;
 }
-
 
 @Component({
   selector: 'app-root',
@@ -23,8 +20,8 @@ export class AppComponent {
 
   primaryColor = '#FFDE59';
   accentColor = '#323232';
-  primaryColorPalette: Color[] = [];
-  accentColorPalette: Color[] = [];
+  primaryColorPalette: ColorItem[] = [];
+  accentColorPalette: ColorItem[] = [];
 
   constructor(
     private _overlay: OverlayContainer
@@ -56,7 +53,7 @@ export class AppComponent {
 
 }
 
-function updateTheme(colors: Color[], theme: string) {
+function updateTheme(colors: ColorItem[], theme: string) {
   colors.forEach(color => {
       document.documentElement.style.setProperty(
         `--theme-${theme}-${color.name}`,
@@ -69,7 +66,7 @@ function updateTheme(colors: Color[], theme: string) {
     });
 }
 
-function computeColors(hex: string): Color[] {
+function computeColors(hex: string): ColorItem[] {
   return [
     getColorObject(new TinyColor(hex).lighten(52), '50'),
     getColorObject(new TinyColor(hex).lighten(37), '100'),
@@ -88,7 +85,7 @@ function computeColors(hex: string): Color[] {
   ];
 }
 
-function getColorObject(value: any, name: any): Color {
+function getColorObject(value: any, name: any): ColorItem {
   const c = new TinyColor(value);
   return {
     name: name,

@@ -1,13 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-
-export interface TaskItem {
-  id?: number;
-  title: string;
-  description?: string;
-  date: string;
-  completed: boolean;
-}
+import { TaskItem } from '../models';
 
 export enum AppValues {
   tasks = "tasks",
