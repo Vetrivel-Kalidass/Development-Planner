@@ -1,3 +1,5 @@
 export enum AppValues {
-    darkMode = 'dark-mode'
+    darkMode = 'dark-mode',
+    tasks = "tasks",
+    tags = "tags",
 };

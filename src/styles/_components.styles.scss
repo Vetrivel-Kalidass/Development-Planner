@@ -97,6 +97,7 @@ mat-card.task-group {
 		border-radius: 4px;
 
 		mat-expansion-panel-header {
+			background: transparent !important;
 			padding: 0px !important;
 
 			.mat-content {
@@ -130,7 +131,7 @@ mat-card.task-group {
 		.mat-expansion-panel-body {
 			padding: 0 22px 16px 16px !important;
 
-			* {
+			& > * {
 				width: 100%;
 				white-space: pre-wrap;
 				word-break: break-word;

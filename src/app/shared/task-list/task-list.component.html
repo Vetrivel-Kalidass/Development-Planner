@@ -8,7 +8,7 @@
                 <div class="details" [ngClass]="{ 'complete': task.completed }">
                     <a (click)="togglePanels(i, task.description)">
                         <div *ngIf="task.title" class="mat-headline-1 mb-0">{{ task.title }}</div>
-                        <div *ngIf="task.date" class="mat-caption mb-0">{{ task.date | date: 'shortTime' }}</div>
+                        <div *ngIf="task.dueDate" class="mat-caption mb-0">{{ task.dueDate | date: 'shortTime' }}</div>
                     </a>
                 </div>
                 <button mat-icon-button [matMenuTriggerFor]="moreOptions">
@@ -25,7 +25,18 @@
                     </button>
                 </mat-menu>
             </mat-expansion-panel-header>
-            <div *ngIf="task.description" class="mat-body-2">{{ task.description }}</div>
+            <div *ngIf="task.description" class="mat-body-2 mb-12">{{ task.description }}</div>
+            <span class="d-flex flex-col" *ngIf="task.checkList?.length">
+                <mat-checkbox 
+                    class="mb-8" 
+                    *ngFor="let listItem of task.checkList" 
+                    name="listItem.id" 
+                    (change)="checklistChange(task, listItem)" 
+                    [checked]="listItem.completed"
+                >
+                    <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
+                </mat-checkbox>
+            </span>
         </mat-expansion-panel>
     </ng-container>
 </mat-card>

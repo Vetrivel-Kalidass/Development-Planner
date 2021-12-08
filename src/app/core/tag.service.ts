@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TagItem } from '../models';
+import { AppValues } from '../shared/data';
 import { LocalStorageService } from './local-storage.service';
-import { AppValues } from './task-service.service';
 
 @Injectable()
 export class TagService {

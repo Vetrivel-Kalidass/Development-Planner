@@ -1,12 +1,18 @@
+export interface CheckListItem {
+    id?: number;
+    description: string;
+    completed: boolean;
+}
+
 export interface TaskItem {
     id?: number;
     title: string;
     description?: string;
     completed: boolean;
-    date: string;
-    taskTypes?: 'checkList' | 'para';
-    checkList?: string[];
+    checkListType: boolean;
+    checkList?: CheckListItem[];
     tagId?: number;
+    dueDate: string;
     createdAt?: string;
 }
 // OLD

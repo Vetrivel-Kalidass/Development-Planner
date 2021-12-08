@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TaskItem } from '../models';
+import { AppValues } from '../shared/data';
 import { LocalStorageService } from './local-storage.service';
-
-export enum AppValues {
-  tasks = "tasks",
-  tags = "tags",
-}
 
 @Injectable()
 export class TaskServiceService {
@@ -32,7 +28,12 @@ export class TaskServiceService {
     const currentTasks: TaskItem[] = this._localStorageService.getLocalItem(AppValues.tasks);
     let noOfTasks: number | null = currentTasks?.length;
 
-    const newTasks: TaskItem[] = noOfTasks ? [ ...currentTasks, {  id: noOfTasks + 1, ...newTask } ] : [ { id: 1, ...newTask } ];
+    newTask = {
+      ...newTask,
+      id: noOfTasks ? noOfTasks + 1 : 1,
+      createdAt: new Date().toISOString(),
+    };
+    const newTasks: TaskItem[] = noOfTasks ? [ ...currentTasks, newTask ] : [ newTask ];
     this._localStorageService.setLocalItem(AppValues.tasks, newTasks);
     this.setAllTasks();
   }

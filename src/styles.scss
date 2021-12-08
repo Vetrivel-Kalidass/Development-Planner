@@ -32,19 +32,23 @@ html, body, main#mainContainer {
 
 .dark-mode main#mainContainer {
     background: $mat-dark-background;
-    // color: $mat-dark-text;
+    color: $mat-dark-text;
 
     .bg-disabled {
         background-color: $mat-dark-disabled-list-option !important;
     }
 }
 
-.mat-primary {
-    color: var(--theme-primary-contrast-500) !important;
+.text-strike {
+  text-decoration: line-through;
 }
-.mat-accent {
-    color: var(--theme-accent-contrast-500) !important;
-}
+
+// .mat-primary {
+//     color: var(--theme-primary-contrast-500) !important;
+// }
+// .mat-accent {
+//     color: var(--theme-accent-contrast-500) !important;
+// }
 
 /* DIALOG FORMS */
 mat-dialog-container {
@@ -53,11 +57,20 @@ mat-dialog-container {
     min-height: 90vh;
   }
   form {
-    height: calc(90vh - 66px);
+    // height: calc(90vh - 66px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
+}
+mat-option .color-tile {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 3px;
 }
 
 /* GROUPS TILES */

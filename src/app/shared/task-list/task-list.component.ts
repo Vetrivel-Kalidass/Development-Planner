@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskServiceService } from 'src/app/core/task-service.service';
-import { TaskItem } from 'src/app/models';
+import { CheckListItem, TaskItem } from 'src/app/models';
 import { CreateTaskComponent } from '../create-task/create-task.component';
 
 @Component({
@@ -33,6 +33,19 @@ export class TaskListComponent implements OnInit {
 
   checkBoxChange(task: TaskItem) {
     this._taskService.editTask({ ...task, completed: !task.completed });
+  }
+
+  checklistChange(task: TaskItem, checkListItem: CheckListItem) {
+    let modifiedList: CheckListItem[];
+    if (!task?.checkList?.length) return;
+    modifiedList = task?.checkList?.map(item => {
+      if (item.id === checkListItem.id) {
+        return { ...item, completed: !item.completed };
+      }
+      return item;
+    });
+    let isTaskCompleted: boolean = modifiedList?.every(item => item.completed);
+    this._taskService.editTask({ ...task, completed: isTaskCompleted, checkList: modifiedList });
   }
 
   editTask(task: TaskItem) {
