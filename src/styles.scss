@@ -55,6 +55,7 @@ mat-dialog-container {
   .form-container {
     width: calc(95vw - 48px);
     min-height: 90vh;
+
   }
   form {
     // height: calc(90vh - 66px);
@@ -62,7 +63,7 @@ mat-dialog-container {
     flex-direction: column;
     justify-content: space-between;
   }
-
+  
 }
 mat-option .color-tile {
   width: 20px;
@@ -71,6 +72,18 @@ mat-option .color-tile {
   right: 10px;
   top: 10px;
   border-radius: 3px;
+}
+.checklist-container mat-checkbox {
+  .mat-checkbox-inner-container {
+    margin-top: 2%;
+  }
+  
+  .mat-checkbox-label {
+    width: 100%;
+    word-break: break-word;
+    white-space: pre-wrap;
+    /* text-overflow: unset !important; */
+  }
 }
 
 /* GROUPS TILES */

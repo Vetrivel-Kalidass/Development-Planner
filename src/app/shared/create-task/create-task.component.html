@@ -42,9 +42,9 @@
         </form>
         
         <ng-container *ngIf="isCheckList">
-            <span class="d-flex flex-col mb-8" *ngIf="checkLists?.length">
+            <span class="checklist-container d-flex flex-col mb-8" *ngIf="checkLists?.length">
                 <div class="mat-caption text-mute mb-4">Check List</div>
-                <mat-checkbox *ngFor="let listItem of checkLists" name="list.id" [checked]="listItem.completed" (change)="changeCheckListItem(listItem)">
+                <mat-checkbox class="mb-12" *ngFor="let listItem of checkLists" name="list.id" [checked]="listItem.completed" (change)="changeCheckListItem(listItem)">
                     <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
                 </mat-checkbox>
             </span>
