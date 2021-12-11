@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { CreateTagComponent } from '../create-tag/create-tag.component';
 import { CreateTaskComponent } from '../create-task/create-task.component';
 
@@ -13,7 +14,8 @@ export class MainActionsMenuComponent implements OnInit {
 
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<MainActionsMenuComponent>,
-    private _matDialog: MatDialog
+    private _matDialog: MatDialog,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +37,10 @@ export class MainActionsMenuComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  navigateTo(path: string) {
+    this._router.navigateByUrl(`/home/${path}`);
   }
 
   click() {
