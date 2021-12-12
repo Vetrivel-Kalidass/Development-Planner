@@ -4,7 +4,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { NoteService } from 'src/app/core/note.service';
 import { TagService } from 'src/app/core/tag.service';
-import { CheckListItem, NoteItem, TagItem } from 'src/app/models';
+import { CheckListItem, FormType, NoteItem, TagItem } from 'src/app/models';
+import { AppValues } from 'src/app/shared/data';
 
 @Component({
   selector: 'app-create-note',
@@ -13,11 +14,12 @@ import { CheckListItem, NoteItem, TagItem } from 'src/app/models';
 })
 export class CreateNoteComponent implements OnInit {
 
+  appValues = AppValues;
+  formType: FormType = this.appValues.create;
   selectedNoteItem: NoteItem | null | undefined;
   noteItemForm!: FormGroup;
   checkLists: CheckListItem[] = [];
   allTags$!: Observable<TagItem[] | null | undefined>;
-
   currentCheckListDesc: string | null = null;
 
   constructor(
@@ -28,10 +30,13 @@ export class CreateNoteComponent implements OnInit {
     private _tagService: TagService,
   ) {
     this._activatedRoute.params.subscribe((params: Params) => {
-      this.selectedNoteItem = params['id'] ? this._noteService.getNoteById(+params['id']) : null;
-      this.checkLists = this.selectedNoteItem?.checkList ? [ ...this.selectedNoteItem.checkList ] : [];
+      if (params['id']?.length) {
+        this.selectedNoteItem = this._noteService.getNoteById(+params['id']);
+        this.checkLists = this.selectedNoteItem?.checkList ? [ ...this.selectedNoteItem.checkList ] : [];
+        this.formType = this.appValues.edit;
+      }
+      this.createNoteItemForm(this.selectedNoteItem);
     });
-    this.createNoteItemForm(this.selectedNoteItem);
    }
 
   ngOnInit(): void {

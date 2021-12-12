@@ -4,7 +4,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { TagService } from 'src/app/core/tag.service';
 import { TaskServiceService } from 'src/app/core/task-service.service';
-import { CheckListItem, TagItem, TaskItem } from 'src/app/models';
+import { CheckListItem, FormType, TagItem, TaskItem } from 'src/app/models';
+import { AppValues } from '../data';
 
 @Component({
   selector: 'app-create-task',
@@ -13,6 +14,8 @@ import { CheckListItem, TagItem, TaskItem } from 'src/app/models';
 })
 export class CreateTaskComponent implements OnInit {
 
+  appValues = AppValues;
+  formType: FormType = this.appValues.create;
   selectedTaskItem: TaskItem | null | undefined;
   taskItemForm!: FormGroup;
   checkLists: CheckListItem[] = [];
@@ -29,6 +32,7 @@ export class CreateTaskComponent implements OnInit {
   ) {
     this.selectedTaskItem = this.data ? { ...this.data } : null;
     this.checkLists = this.data?.checkList ? [ ...this.data.checkList ] : [];
+    if (this.data) this.formType = this.appValues.edit;
     this.createTaskItemForm(this.selectedTaskItem);
    }
 

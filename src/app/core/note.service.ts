@@ -25,6 +25,7 @@ export class NoteService {
   }
 
   getNoteById(noteId: number): NoteItem | undefined {
+    this.setAllNotes();
     return this._allNotes.value?.find(note => note.id === noteId);
   }
 

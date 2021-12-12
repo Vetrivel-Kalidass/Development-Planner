@@ -40,7 +40,8 @@ export class MainActionsMenuComponent implements OnInit {
   }
 
   navigateTo(path: string) {
-    this._router.navigateByUrl(`/home/${path}`);
+    this._router.navigateByUrl(`/home/${path}`)
+      .then(() => this._bottomSheetRef.dismiss());
   }
 
   click() {

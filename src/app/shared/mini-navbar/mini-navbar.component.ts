@@ -16,7 +16,7 @@ export class MiniNavbarComponent implements OnInit {
   ) {}
 
   openMainActionMenu(): void {
-    this._bottomSheet.open(MainActionsMenuComponent);
+    this._bottomSheet.open(MainActionsMenuComponent, { panelClass: 'p-0' });
   }
 
   ngOnInit(): void {

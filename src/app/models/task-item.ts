@@ -1,3 +1,5 @@
+import { AppValues } from "../shared/data";
+
 export interface CheckListItem {
     id?: number;
     description: string;
@@ -15,14 +17,6 @@ export interface TaskItem {
     dueDate: string;
     createdAt?: string;
 }
-// OLD
-// export interface TaskItem {
-//   id?: number;
-//   title: string;
-//   description?: string;
-//   date: string;
-//   completed: boolean;
-// }
 
 export interface NoteItem {
     id?: number;
@@ -56,3 +50,6 @@ export interface ThemeItem {
     secondary: string;
     darkMode: boolean;
 }
+
+/**CONTENTS */
+export type FormType = AppValues.create | AppValues.edit;

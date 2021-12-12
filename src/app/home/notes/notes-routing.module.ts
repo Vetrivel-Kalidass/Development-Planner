@@ -5,7 +5,8 @@ import { NotesComponent } from './notes.component';
 
 const routes: Routes = [
   { path: '', component: NotesComponent },
-  { path: 'create-note', component: CreateNoteComponent }
+  { path: 'create', component: CreateNoteComponent },
+  { path: 'edit/:id', component: CreateNoteComponent }
 ];
 
 @NgModule({

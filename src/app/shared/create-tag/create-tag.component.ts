@@ -2,7 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TagService } from 'src/app/core/tag.service';
-import { TagItem } from 'src/app/models';
+import { FormType, TagItem } from 'src/app/models';
+import { AppValues } from '../data';
 
 @Component({
   selector: 'app-create-tag',
@@ -11,6 +12,8 @@ import { TagItem } from 'src/app/models';
 })
 export class CreateTagComponent implements OnInit {
 
+  appValues = AppValues;
+  formType: FormType = this.appValues.create;
   selectedTagItem: TagItem | null | undefined;
   tagItemForm!: FormGroup;
 
@@ -21,6 +24,7 @@ export class CreateTagComponent implements OnInit {
     private _tagService: TagService
   ) {
     this.selectedTagItem = this.data ? { ...this.data } : null;
+    if (this.data) this.formType = this.appValues.edit;
     this.createTagItemForm(this.selectedTagItem);
    }
 

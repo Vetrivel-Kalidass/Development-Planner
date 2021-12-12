@@ -1,6 +1,6 @@
 <div class="form-container d-flex flex-col justify-content-between">
     <span>
-        <h2 mat-dialog-title class="mb-4">Create Tag</h2>
+        <h2 mat-dialog-title class="mb-4">{{ formType === appValues.create ? 'Create' : 'Edit' }} Tag</h2>
         <mat-divider class="mb-16"></mat-divider>
         <mat-dialog-content class="d-flex flex-col">
             <form *ngIf="tagItemForm" [formGroup]="tagItemForm">
@@ -31,6 +31,6 @@
     </span>
     <mat-dialog-actions align="end">
         <button mat-button type="button" mat-dialog-close>Cancel</button>
-        <button mat-raised-button (click)="submitForm()" color="primary">Create</button>
+        <button mat-raised-button (click)="submitForm()" color="primary">{{ formType === appValues.create ? 'Create' : 'Update' }}</button>
     </mat-dialog-actions>
 </div>

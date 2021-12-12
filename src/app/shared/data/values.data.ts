@@ -3,4 +3,7 @@ export enum AppValues {
     tasks = "tasks",
     tags = "tags",
     notes = "notes",
+    edit = 'edit',
+    create = 'create',
+    delete = 'delete',
 };
