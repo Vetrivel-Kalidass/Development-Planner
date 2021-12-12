@@ -10,6 +10,7 @@ const routes: Routes = [
       { path: 'work-list', loadChildren: () => import('./work-list/work-list.module').then(m => m.WorkListModule) },
       { path: 'groups', loadChildren: () => import('./groups/groups.module').then(m => m.GroupsModule) },
       { path: 'notes', loadChildren: () => import('./notes/notes.module').then(m => m.NotesModule) }, 
+      { path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
       { path: '', pathMatch: 'full', redirectTo: 'work-list' },
       { path: '**', redirectTo: 'work-list' }
     ]

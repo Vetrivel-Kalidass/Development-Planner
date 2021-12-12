@@ -4,7 +4,7 @@ import { LocalStorageService } from './local-storage.service';
 import { TagService } from './tag.service';
 import { TaskServiceService } from './task-service.service';
 import { NoteService } from './note.service';
-
+import { CommonService } from './common.service';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { NoteService } from './note.service';
     LocalStorageService,
     TaskServiceService,
     TagService,
-    NoteService
+    NoteService,
+    CommonService
   ]
 })
 export class CoreModule { }

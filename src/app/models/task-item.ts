@@ -53,3 +53,11 @@ export interface ThemeItem {
 
 /**CONTENTS */
 export type FormType = AppValues.create | AppValues.edit;
+
+export interface Theme {
+    id?: number;
+    name: string;
+    primary: string;
+    accent: string;
+    darkMode: boolean;
+  }

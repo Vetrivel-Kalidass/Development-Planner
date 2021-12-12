@@ -26,11 +26,11 @@
             </mat-expansion-panel-header>
 
             
-            <div *ngIf="note.description" class="mat-body-1 mb-16">{{ note.description }}</div>
+            <div *ngIf="note.description" class="mat-body-1 text-mute mb-16">{{ note.description }}</div>
         
             <span class="checklist-container d-flex flex-col" *ngIf="note.checkList?.length">
                 <mat-checkbox 
-                    class="mb-12" 
+                    class="text-mute mb-12" 
                     *ngFor="let listItem of note.checkList; trackBy: trackByFn" 
                     name="listItem.id" 
                     (change)="checklistChange(note, listItem)" 

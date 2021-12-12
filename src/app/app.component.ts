@@ -1,6 +1,8 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component, HostBinding } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TinyColor } from '@ctrl/tinycolor';
+import { Subscription } from 'rxjs';
+import { CommonService } from './core/common.service';
 import { AppValues } from './shared/data';
 
 interface ColorItem {
@@ -14,9 +16,9 @@ interface ColorItem {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  @HostBinding() className: string = '';
+export class AppComponent implements OnInit, OnDestroy {
   title = 'development-planner';
+  darkModeSubs$!: Subscription;
 
   primaryColor = '#FFDE59';
   accentColor = '#323232';
@@ -24,7 +26,8 @@ export class AppComponent {
   accentColorPalette: ColorItem[] = [];
 
   constructor(
-    private _overlay: OverlayContainer
+    private _overlay: OverlayContainer,
+    private _commonService: CommonService
   ) {
     this.savePrimaryColor();
     this.saveAccentColor();
@@ -33,6 +36,10 @@ export class AppComponent {
       const header = document.querySelector("mat-toolbar.top-bar");
       header?.classList.toggle("shrink", (window.scrollY !== 0));
     });
+  }
+
+  ngOnInit(): void {
+    this.darkModeSubs$ = this._commonService.currentTheme.subscribe();
   }
 
   savePrimaryColor() {
@@ -45,9 +52,8 @@ export class AppComponent {
     updateTheme(this.accentColorPalette, 'accent');
   }
 
-  toggleDarkMode() {
-    this.className = this.className.includes(AppValues.darkMode) ? '' : AppValues.darkMode;
-    this._overlay.getContainerElement().classList.toggle(AppValues.darkMode);
+  ngOnDestroy(): void {
+    this.darkModeSubs$.unsubscribe();
   }
 
 }

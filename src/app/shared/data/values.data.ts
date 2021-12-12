@@ -1,3 +1,5 @@
+import { Theme } from "src/app/models";
+
 export enum AppValues {
     darkMode = 'dark-mode',
     tasks = "tasks",
@@ -8,3 +10,11 @@ export enum AppValues {
     delete = 'delete',
     defaultTagColor = '#344d3a',
 };
+
+export const vkYTheme: Theme = {
+    id: 107,
+    name: "VK-Y-Theme",
+    primary: "",
+    accent: "",
+    darkMode: true
+}

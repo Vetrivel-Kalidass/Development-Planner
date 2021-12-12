@@ -25,6 +25,12 @@ html, body, main#mainContainer {
     margin: 0;
     padding: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif; 
+    overflow: auto;
+}
+
+main#mainContainer {
+  background: $mat-light-background;
+  color: $mat-light-text;
 }
 
 .bg-disabled {
@@ -81,11 +87,13 @@ html, body, main#mainContainer {
 }
 
 .dark-mode {
-    background: $mat-dark-background;
-    color: $mat-dark-text;
+    main#mainContainer {
+      background: $mat-dark-background;
+      color: $mat-dark-text;
+    }
 
     .bg-disabled {
-        background-color: $mat-dark-disabled-button !important;
+        background-color: $mat-dark-background !important;
     }
     .bg-back {
       background-color: $mat-dark-background !important;
