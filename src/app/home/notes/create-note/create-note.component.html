@@ -1,1 +1,59 @@
-<h1>create note</h1>
+<div class="form-container page-view d-flex flex-col justify-content-between">
+
+    <div class="d-flex flex-col">
+        <h2 mat-dialog-title class="mb-4">Create Note</h2>
+        <mat-divider class="mb-16"></mat-divider>
+
+        <form class="mb-16" *ngIf="noteItemForm" [formGroup]="noteItemForm">
+            <mat-form-field appearance="legacy">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" placeholder="eg: Buy New Stocks" cdkFocusInitial>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Tag</mat-label>
+                <mat-select formControlName="tagId">
+                    <mat-option [value]="null">-----</mat-option>
+                    <ng-container *ngIf="allTags$ | async as _allTags">
+                        <mat-option color="accent" *ngFor="let tag of _allTags" [value]="tag.id" class="d-flex">
+                            <span>{{ tag.title }}</span>
+                            <span class="color-tile" [style.background-color]="tag.color"></span>
+                        </mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" placeholder="eg: Buy stocks in large scale"
+                    rows="4"></textarea>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="checkListType">Check List..?</mat-checkbox>
+        </form>
+
+        <ng-container *ngIf="isCheckList">
+            <span class="checklist-container d-flex flex-col mb-8" *ngIf="checkLists?.length">
+                <div class="mat-caption text-mute mb-4">Check List</div>
+                <mat-checkbox class="mb-12" *ngFor="let listItem of checkLists" name="list.id"
+                    [checked]="listItem.completed" (change)="changeCheckListItem(listItem)">
+                    <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
+                </mat-checkbox>
+            </span>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Enter Check List</mat-label>
+                <input matInput type="text" [(ngModel)]="currentCheckListDesc" (keyup.enter)="addCheckList()"
+                    placeholder="eg: Buy New Stocks">
+                <button mat-button color="accent" matSuffix type="button" (click)="addCheckList()">ADD</button>
+            </mat-form-field>
+
+        </ng-container>
+
+    </div>
+
+    <mat-dialog-actions class="p-0" align="end">
+        <button mat-button type="button" mat-dialog-close>Cancel</button>
+        <button mat-raised-button (click)="submitForm()" color="primary">Create</button>
+    </mat-dialog-actions>
+</div>

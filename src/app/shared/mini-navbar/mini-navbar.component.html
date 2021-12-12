@@ -2,12 +2,18 @@
     <ul>
         <li class="nav-action side">
             <button (click)="navigateTo('work-list')" mat-button>
-                <mat-icon class="material-icons-outlined">checklist</mat-icon>
+                <span class="nav-icon-text">
+                    <mat-icon class="material-icons-outlined">checklist</mat-icon>
+                    <span class="mat-caption">Tasks</span>
+                </span>
             </button>
         </li>
         <li class="nav-action side">
             <button (click)="navigateTo('groups')" mat-button>
-                <mat-icon class="material-icons-outlined">grid_view</mat-icon>
+                <span class="nav-icon-text">
+                    <mat-icon class="material-icons-outlined">grid_view</mat-icon>
+                    <span class="mat-caption">Groups</span>
+                </span>
             </button>
         </li>
         <li class="nav-action middle">
@@ -17,12 +23,18 @@
         </li>
         <li class="nav-action side">
             <button (click)="navigateTo('notes')" mat-button>
-                <mat-icon class="material-icons-outlined">splitscreen</mat-icon>
+                <span class="nav-icon-text">
+                    <mat-icon class="material-icons-outlined">splitscreen</mat-icon>
+                    <span class="mat-caption">Notes</span>
+                </span>
             </button>
         </li>
         <li class="nav-action side">
             <button (click)="navigateTo('work-list')" mat-button>
-                <mat-icon class="material-icons-outlined">person_outline</mat-icon>
+                <span class="nav-icon-text">
+                    <mat-icon class="material-icons-outlined">person_outline</mat-icon>
+                    <span class="mat-caption">Account</span>
+                </span>
             </button>
         </li>
     </ul>

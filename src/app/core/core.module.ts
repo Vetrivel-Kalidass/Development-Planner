@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LocalStorageService } from './local-storage.service';
 import { TagService } from './tag.service';
 import { TaskServiceService } from './task-service.service';
+import { NoteService } from './note.service';
 
 
 
@@ -13,7 +14,8 @@ import { TaskServiceService } from './task-service.service';
   providers: [
     LocalStorageService,
     TaskServiceService,
-    TagService
+    TagService,
+    NoteService
   ]
 })
 export class CoreModule { }

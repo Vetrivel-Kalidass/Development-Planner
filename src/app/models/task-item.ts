@@ -29,7 +29,8 @@ export interface NoteItem {
     title?: string;
     description: string;
     tagId: number;
-    checkList?: string[];
+    checkListType: boolean;
+    checkList?: CheckListItem[];
     createdAt: string;
 }
 
