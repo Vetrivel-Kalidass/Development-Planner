@@ -20,3 +20,5 @@
           </mat-menu>      
     </div>
 </mat-toolbar>
+
+<app-note-list [allNotes]="allNotes$ | async" [allTags]="allTags$ | async"></app-note-list>

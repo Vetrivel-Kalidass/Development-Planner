@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateTagComponent } from './create-tag/create-tag.component';
 import { CoreModule } from '../core/core.module';
 import { RouterModule } from '@angular/router';
+import { NoteListComponent } from './note-list/note-list.component';
 
 
 
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
     TaskListComponent,
     MainActionsMenuComponent,
     CreateTaskComponent,
-    CreateTagComponent
+    CreateTagComponent,
+    NoteListComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { RouterModule } from '@angular/router';
     MiniNavbarComponent,
     TaskListComponent,
     MainActionsMenuComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    NoteListComponent
   ]
 })
 export class SharedModule { }

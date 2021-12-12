@@ -3,12 +3,18 @@
     <div class="mat-headline-2 mb-8" *ngIf="today">TODAY: {{ today }}</div>
     <ng-container *ngFor="let task of allTasks; trackBy: trackByFn; let i = index">
         <mat-expansion-panel [expanded]="indexExpanded == i" class="task-item" disabled hideToggle [ngClass]="{ 'bg-disabled text-mute': task.completed }">
+            
+            <div *ngIf="indexExpanded == i" [style.background]="getTagColor(task.tagId)" class="tag-bar"></div>
             <mat-expansion-panel-header>
+                <div *ngIf="indexExpanded !== i" [style.background]="getTagColor(task.tagId)" class="tag-bar-inner"></div>
+
                 <mat-checkbox [checked]="task.completed" (change)="checkBoxChange(task)"></mat-checkbox>
                 <div class="details" [ngClass]="{ 'complete': task.completed }">
                     <a (click)="togglePanels(i, task.description)">
                         <div *ngIf="task.title" class="mat-headline-1 mb-0">{{ task.title }}</div>
-                        <div *ngIf="task.dueDate" class="mat-caption mb-0">{{ task.dueDate | date: 'shortTime' }}</div>
+                        <div *ngIf="task.createdAt || task.dueDate" class="mat-caption text-mute mb-0">
+                            {{ (task.createdAt | date: 'mediumDate') || '' }} - {{ (task.dueDate | date: 'mediumDate') || 'Any Time' }}
+                        </div>
                     </a>
                 </div>
                 <button mat-icon-button [matMenuTriggerFor]="moreOptions">
@@ -25,11 +31,11 @@
                     </button>
                 </mat-menu>
             </mat-expansion-panel-header>
-            <div *ngIf="task.description" class="mat-body-2 mb-12">{{ task.description }}</div>
+            <div *ngIf="task.description" class="mat-body-1 mb-12">{{ task.description }}</div>
             <span class="checklist-container d-flex flex-col" *ngIf="task.checkList?.length">
                 <mat-checkbox 
                     class="mb-12" 
-                    *ngFor="let listItem of task.checkList" 
+                    *ngFor="let listItem of task.checkList; trackBy: trackByFn" 
                     name="listItem.id" 
                     (change)="checklistChange(task, listItem)" 
                     [checked]="listItem.completed"

@@ -101,5 +101,9 @@ export class CreateTaskComponent implements OnInit {
     }
     this._matDialogRef.close();
   }
+  
+  trackByFn(index: number, item: object): number { 
+    return index; 
+  }
 
 }

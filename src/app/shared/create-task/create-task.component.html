@@ -15,7 +15,7 @@
                     <mat-select formControlName="tagId">
                         <mat-option [value]="null">-----</mat-option>
                         <ng-container *ngIf="allTags$ | async as _allTags">
-                            <mat-option color="accent" *ngFor="let tag of _allTags" [value]="tag.id" class="d-flex">
+                            <mat-option color="accent" *ngFor="let tag of _allTags; trackBy: trackByFn" [value]="tag.id" class="d-flex">
                                 <span>{{ tag.title }}</span>
                                 <span class="color-tile" [style.background-color]="tag.color"></span>
                             </mat-option>
@@ -46,7 +46,7 @@
             <ng-container *ngIf="isCheckList">
                 <span class="checklist-container d-flex flex-col mb-8" *ngIf="checkLists?.length">
                     <div class="mat-caption text-mute mb-4">Check List</div>
-                    <mat-checkbox class="mb-12" *ngFor="let listItem of checkLists" name="list.id"
+                    <mat-checkbox class="mb-12" *ngFor="let listItem of checkLists; trackBy: trackByFn" name="list.id"
                         [checked]="listItem.completed" (change)="changeCheckListItem(listItem)">
                         <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
                     </mat-checkbox>

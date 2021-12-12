@@ -6,4 +6,5 @@ export enum AppValues {
     edit = 'edit',
     create = 'create',
     delete = 'delete',
+    defaultTagColor = '#344d3a',
 };

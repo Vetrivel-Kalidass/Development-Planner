@@ -102,16 +102,14 @@ mat-toolbar.top-bar {
 
 mat-card.task-group {
 	margin: 16px 8px;
-
-	mat-expansion-panel.task-item {
-		padding: 8px 0px !important;
+}
+	mat-expansion-panel.task-item, mat-expansion-panel.note-item {
 		box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 		margin-bottom: 8px;
 		border-radius: 4px;
 
 		mat-expansion-panel-header {
 			background: transparent !important;
-			padding: 0px !important;
 
 			.mat-content {
 				padding: 0px 16px;
@@ -155,19 +153,55 @@ mat-card.task-group {
 		.mat-expansion-panel-header[aria-disabled="true"] {
 			color: inherit !important;
 		}
-		&::after {
-			content: " ";
-			width: 6px;
-			height: calc(100% - 32px);
-			background: #344d3a;
+		.tag-bar, .tag-bar-inner {
+			// content: " ";
 			position: absolute;
-			top: 16px;
-			right: 0;
 			border-radius: 2px;
 		}
 	}
 
-}
+	mat-expansion-panel.task-item {
+		padding: 8px 0px !important;
+
+		mat-expansion-panel-header {
+			padding: 0px !important;
+		}
+		.tag-bar, .tag-bar-inner {
+			width: 6px;
+			right: 0;
+		}
+		.tag-bar {
+			height: calc(100% - 32px);
+			top: 16px;
+		}
+		.tag-bar-inner {
+			height: calc(100% - 16px);
+			top: 8px;
+		}
+	}
+
+	mat-expansion-panel.note-item {
+		padding-top: 0px !important;
+
+		mat-expansion-panel-header {
+			padding-top: 8px !important;
+		}
+		.details {
+			max-width: 250px !important;
+			margin-top: 8px;
+		}
+		.mat-expansion-panel-body {
+			padding: 0 16px 16px 26px !important;
+		}
+
+		.tag-bar {
+			width: calc(100% - 32px);
+			height: 6px;
+			top: 0;
+			left: 16px;
+		}
+	}
+
 
 .cdk-overlay-pane.full-view-dialog {
 	max-width: 95vw !important;

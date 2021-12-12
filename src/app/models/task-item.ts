@@ -13,7 +13,7 @@ export interface TaskItem {
     completed: boolean;
     checkListType: boolean;
     checkList?: CheckListItem[];
-    tagId?: number;
+    tagId: number;
     dueDate: string;
     createdAt?: string;
 }

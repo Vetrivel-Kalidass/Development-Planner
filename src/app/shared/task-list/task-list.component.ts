@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskServiceService } from 'src/app/core/task-service.service';
-import { CheckListItem, TaskItem } from 'src/app/models';
+import { CheckListItem, TagItem, TaskItem } from 'src/app/models';
 import { CreateTaskComponent } from '../create-task/create-task.component';
+import { AppValues } from '../data';
 
 @Component({
   selector: 'app-task-list',
@@ -12,9 +13,10 @@ import { CreateTaskComponent } from '../create-task/create-task.component';
 export class TaskListComponent implements OnInit {
   
   @Input() allTasks: TaskItem[] | null | undefined;
+  @Input() allTags: TagItem[] | null | undefined;
   today!: string;
 
-  indexExpanded: number = -1;
+  indexExpanded: number = 0;
 
   constructor(
     private _taskService: TaskServiceService,
@@ -24,6 +26,10 @@ export class TaskListComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  getTagColor(tagId: number): string {
+    return this.allTags?.find(tag => tag.id === tagId)?.color || AppValues.defaultTagColor;
   }
 
   togglePanels(index: number, description: string | undefined) {

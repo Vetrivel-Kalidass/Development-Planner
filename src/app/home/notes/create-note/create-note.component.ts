@@ -96,5 +96,9 @@ export class CreateNoteComponent implements OnInit {
     }
     this._router.navigate(['/home/notes']);
   }
+  
+  trackByFn(index: number, item: object): number { 
+    return index; 
+  }
 
 }

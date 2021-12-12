@@ -1,0 +1,45 @@
+<div class="p-16">
+    <ng-container *ngFor="let note of allNotes; trackBy: trackByFn; let i = index">
+        <mat-expansion-panel [expanded]="indexExpanded !== i" class="note-item hover-box-shadow-1-tile" disabled hideToggle>
+            <mat-expansion-panel-header>
+                <div [style.background]="getTagColor(note.tagId)" class="tag-bar"></div>
+                <div class="details">
+                    <a (click)="togglePanels(i, note.description)">
+                        <div *ngIf="note.title" class="mat-headline-1 m-0">{{ note.title }}</div>
+                        <div *ngIf="note.createdAt" class="mat-caption text-mute mb-0">{{ note.createdAt | date: 'short' }}</div>
+                    </a>
+                </div>
+
+                <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #moreOptions="matMenu">
+                    <button mat-menu-item (click)="editNote(note)">
+                        <mat-icon class="material-icons-outlined">edit</mat-icon>
+                        <span>Edit</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteNote(note)">
+                        <mat-icon class="material-icons-outlined">delete</mat-icon>
+                        <span>Delete</span>
+                    </button>
+                </mat-menu>
+            </mat-expansion-panel-header>
+
+            
+            <div *ngIf="note.description" class="mat-body-1 mb-16">{{ note.description }}</div>
+        
+            <span class="checklist-container d-flex flex-col" *ngIf="note.checkList?.length">
+                <mat-checkbox 
+                    class="mb-12" 
+                    *ngFor="let listItem of note.checkList; trackBy: trackByFn" 
+                    name="listItem.id" 
+                    (change)="checklistChange(note, listItem)" 
+                    [checked]="listItem.completed"
+                >
+                    <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
+                </mat-checkbox>
+            </span>
+
+        </mat-expansion-panel>
+    </ng-container>
+</div>

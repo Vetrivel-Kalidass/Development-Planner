@@ -6,6 +6,7 @@ import { NotesComponent } from './notes.component';
 import { CreateNoteComponent } from './create-note/create-note.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NotesRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class NotesModule { }
