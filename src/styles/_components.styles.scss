@@ -159,3 +159,68 @@ mat-card.task-group {
 .cdk-overlay-pane.full-view-dialog {
 	max-width: 95vw !important;
 }
+
+/* DIALOG FORMS */
+mat-dialog-container {
+	.form-container {
+	  width: calc(95vw - 48px);
+	  min-height: 90vh;
+  
+	}
+	form {
+	  // height: calc(90vh - 66px);
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: space-between;
+	}
+	
+  }
+  mat-option .color-tile {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	border-radius: 3px;
+  }
+  .checklist-container mat-checkbox {
+	.mat-checkbox-inner-container {
+	  margin-top: 2%;
+	}
+	
+	.mat-checkbox-label {
+	  width: 100%;
+	  word-break: break-word;
+	  white-space: pre-wrap;
+	  /* text-overflow: unset !important; */
+	}
+  }
+  
+  /* GROUPS TILES */
+  .group-tiles-container {
+	width: calc(100% - 20px);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(170px, 185px));
+	grid-gap: 10px;
+	padding: 10px;
+  
+	.mat-card-header {
+		height: 80px;
+	}
+  
+  }
+  
+  
+  /* SCROLL BAR STYLES */
+	html *::-webkit-scrollbar {
+	  width: 4px !important;
+	  height: 4px !important;
+	}
+	html *::-webkit-scrollbar-thumb {
+	  background: var(--theme-accent-500) !important;
+	  cursor: pointer;
+	  border-radius: 0.15625rem;
+	}
+	html *::-webkit-scrollbar-track {
+	  background: transparent !important;
+	}

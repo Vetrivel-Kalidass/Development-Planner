@@ -26,91 +26,83 @@ html, body, main#mainContainer {
     padding: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
+
 .bg-disabled {
     background-color: $mat-light-disabled-list-option !important;
 }
+.bg-back {
+  background-color: $mat-light-background !important;
+}
+.bg-front {
+  background-color: $mat-dark-background !important;
+}
 
-.dark-mode main#mainContainer {
+.text-disabled {
+    color: $mat-light-disabled-list-option !important;
+}
+.text-back {
+  color: $mat-dark-text !important;
+}
+.text-front {
+  color: $mat-light-text !important;
+}
+.text-mute {
+  color: $mat-light-hint-text !important;
+}
+
+
+.bg-white {
+  background-color: $mat-white !important;
+}
+.bg-black {
+  background-color: $mat-black !important;
+}
+.bg-primary {
+  background-color: var(--theme-primary-500) !important;
+}
+.bg-accent {
+  background-color: var(--theme-accent-500) !important;
+}
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.text-white {
+  color: $mat-dark-text !important;
+}
+.text-black {
+  color: $mat-light-text !important;
+}
+.text-primary {
+  color: var(--theme-primary-500) !important;
+}
+.text-accent {
+  color: var(--theme-accent-500) !important;
+}
+
+.dark-mode {
     background: $mat-dark-background;
     color: $mat-dark-text;
 
     .bg-disabled {
-        background-color: $mat-dark-disabled-list-option !important;
+        background-color: $mat-dark-disabled-button !important;
+    }
+    .bg-back {
+      background-color: $mat-dark-background !important;
+    }
+    .bg-front {
+      background-color: $mat-light-background !important;
+    }
+    .text-disabled {
+        color: $mat-dark-disabled-list-option !important;
+    }
+    .text-back {
+      color: $mat-light-text !important;
+    }
+    .text-front {
+      color: $mat-dark-text !important;
+    }
+    .text-mute {
+      color: $mat-dark-hint-text !important;
     }
 }
-
-.text-strike {
-  text-decoration: line-through;
-}
-
-// .mat-primary {
-//     color: var(--theme-primary-contrast-500) !important;
-// }
-// .mat-accent {
-//     color: var(--theme-accent-contrast-500) !important;
-// }
-
-/* DIALOG FORMS */
-mat-dialog-container {
-  .form-container {
-    width: calc(95vw - 48px);
-    min-height: 90vh;
-
-  }
-  form {
-    // height: calc(90vh - 66px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-}
-mat-option .color-tile {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  border-radius: 3px;
-}
-.checklist-container mat-checkbox {
-  .mat-checkbox-inner-container {
-    margin-top: 2%;
-  }
-  
-  .mat-checkbox-label {
-    width: 100%;
-    word-break: break-word;
-    white-space: pre-wrap;
-    /* text-overflow: unset !important; */
-  }
-}
-
-/* GROUPS TILES */
-.group-tiles-container {
-  width: calc(100% - 20px);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 185px));
-  grid-gap: 10px;
-  padding: 10px;
-
-  .mat-card-header {
-      height: 80px;
-  }
-
-}
-
-
-/* SCROLL BAR STYLES */
-  html *::-webkit-scrollbar {
-    width: 4px !important;
-    height: 4px !important;
-  }
-  html *::-webkit-scrollbar-thumb {
-    background: var(--theme-accent-500) !important;
-    cursor: pointer;
-    border-radius: 0.15625rem;
-  }
-  html *::-webkit-scrollbar-track {
-    background: transparent !important;
-  }

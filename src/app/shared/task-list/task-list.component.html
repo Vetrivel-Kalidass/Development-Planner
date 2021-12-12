@@ -1,8 +1,8 @@
 
-<mat-card class="task-group no-box-shadow">
+<mat-card class="task-group bg-transparent no-box-shadow">
     <div class="mat-headline-2 mb-8" *ngIf="today">TODAY: {{ today }}</div>
     <ng-container *ngFor="let task of allTasks; trackBy: trackByFn; let i = index">
-        <mat-expansion-panel [expanded]="indexExpanded == i" class="task-item" disabled hideToggle [ngClass]="{ 'bg-disabled': task.completed }">
+        <mat-expansion-panel [expanded]="indexExpanded == i" class="task-item" disabled hideToggle [ngClass]="{ 'bg-disabled text-mute': task.completed }">
             <mat-expansion-panel-header>
                 <mat-checkbox [checked]="task.completed" (change)="checkBoxChange(task)"></mat-checkbox>
                 <div class="details" [ngClass]="{ 'complete': task.completed }">
