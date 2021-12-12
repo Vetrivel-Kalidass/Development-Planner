@@ -28,12 +28,11 @@ export class AppComponent {
   ) {
     this.savePrimaryColor();
     this.saveAccentColor();
-    // this.toggleDarkMode();
     
-    // window.addEventListener("scroll", function () {
-    //   const header = document.querySelector("nb-layout-header");
-    //   window.scrollY === 0 ? header.classList.add("plain-header") : header.classList.remove("plain-header");
-    // });
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("mat-toolbar.top-bar");
+      header?.classList.toggle("shrink", (window.scrollY !== 0));
+    });
   }
 
   savePrimaryColor() {

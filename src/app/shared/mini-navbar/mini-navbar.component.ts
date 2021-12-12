@@ -10,6 +10,7 @@ import { MainActionsMenuComponent } from '../main-actions-menu/main-actions-menu
 })
 export class MiniNavbarComponent implements OnInit {
 
+  prevScrollPosition: number = window.pageYOffset;
   constructor(
     private _bottomSheet: MatBottomSheet,
     private _router: Router
@@ -20,6 +21,12 @@ export class MiniNavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.addEventListener("scroll", () => {
+      const miniNavbar = document.querySelector("mat-toolbar.miniNavbar");
+      let currentScrollPosition = window.pageYOffset;
+      miniNavbar?.classList.toggle("hide", ((this.prevScrollPosition < window.scrollY)));
+      this.prevScrollPosition = currentScrollPosition;
+    });
   }
 
   navigateTo(path: string) {
