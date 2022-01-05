@@ -1,28 +1,14 @@
-<mat-toolbar class="top-bar text-black" color="primary">
-    <div class="mat-headline mb-8">
-        My Profile
-    </div>
-
+<div class="d-flex justify-content-between align-items-center px-16 pt-16">
+    <div class="mat-headline m-0">My Profile</div>
     <div class="options-menu">
         <button mat-icon-button (click)="toggleDarkMode()">
             <mat-icon class="material-icons-outlined">{{ isDarkMode ? 'dark_mode' : 'light_mode' }}</mat-icon>
-        </button>
-        <!-- <button mat-icon-button [matMenuTriggerFor]="tuneOptions">
-            <mat-icon class="material-icons-outlined">tune</mat-icon>
-        </button>
-          <mat-menu #tuneOptions="matMenu">
-            <button mat-menu-item>
-              <span>Incompleted Tasks</span>
-            </button>
-            <button mat-menu-item>
-              <span>Completed Tasks</span>
-            </button>
-            <button mat-menu-item>
-              <span>All Tasks</span>
-            </button>
-          </mat-menu>       -->
+        </button>    
+        <button mat-icon-button>
+            <mat-icon class="material-icons-outlined">settings</mat-icon>
+        </button>    
     </div>
-</mat-toolbar>
+  </div>
 
 <mat-card class="profile-card hover-box-shadow-1-tile">
 
@@ -37,7 +23,7 @@
 
         <div class="profile-actions">
             <a mat-icon-button color="primary">
-                <mat-icon class="material-icons-outlined">settings</mat-icon>
+                <mat-icon class="material-icons-outlined">edit</mat-icon>
             </a>
         </div>
     </div>

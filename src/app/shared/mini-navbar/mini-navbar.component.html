@@ -1,20 +1,20 @@
 <mat-toolbar class="miniNavbar text-black" color="primary">
     <ul>
         <li class="nav-action side">
-            <button (click)="navigateTo('work-list')" mat-button>
+            <a routerLink="/home/work-list" routerLinkActive="active" mat-button>
                 <span class="nav-icon-text">
                     <mat-icon class="material-icons-outlined">checklist</mat-icon>
                     <span class="mat-caption">Tasks</span>
                 </span>
-            </button>
+            </a>
         </li>
         <li class="nav-action side">
-            <button (click)="navigateTo('groups')" mat-button>
+            <a routerLink="/home/groups" routerLinkActive="active" mat-button>
                 <span class="nav-icon-text">
                     <mat-icon class="material-icons-outlined">grid_view</mat-icon>
                     <span class="mat-caption">Groups</span>
                 </span>
-            </button>
+            </a>
         </li>
         <li class="nav-action middle">
             <button mat-fab (click)="openMainActionMenu()">
@@ -22,20 +22,20 @@
             </button>
         </li>
         <li class="nav-action side">
-            <button (click)="navigateTo('notes')" mat-button>
+            <a routerLink="/home/notes" routerLinkActive="active" mat-button>
                 <span class="nav-icon-text">
                     <mat-icon class="material-icons-outlined">splitscreen</mat-icon>
                     <span class="mat-caption">Notes</span>
                 </span>
-            </button>
+            </a>
         </li>
         <li class="nav-action side">
-            <button (click)="navigateTo('profile')" mat-button>
+            <a routerLink="/home/profile" routerLinkActive="active" mat-button>
                 <span class="nav-icon-text">
                     <mat-icon class="material-icons-outlined">person_outline</mat-icon>
                     <span class="mat-caption">Profile</span>
                 </span>
-            </button>
+            </a>
         </li>
     </ul>
 </mat-toolbar>
