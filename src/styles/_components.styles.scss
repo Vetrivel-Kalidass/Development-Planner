@@ -210,7 +210,7 @@ mat-expansion-panel.note-item {
 		padding-top: 0px !important;
 
 		mat-expansion-panel-header {
-			padding-top: 8px !important;
+			padding: 8px 0px !important;
 		}
 		.details {
 			max-width: 250px !important;
@@ -247,6 +247,12 @@ mat-expansion-panel.note-item {
   mat-dialog-content {
 	  max-height: 75vh !important;
   }
+  button.check-action {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 28px;
+  }
 }
 .form-container.page-view {
 	width: 100%;
@@ -282,10 +288,6 @@ mat-expansion-panel.note-item {
   
 /* GROUPS TILES */
 .group-tiles-container {
-	width: calc(100% - 20px);
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(170px, 185px));
-	grid-gap: 10px;
 	padding: 10px;
   
 	.mat-card-header {

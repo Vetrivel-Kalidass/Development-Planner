@@ -46,10 +46,15 @@
             <ng-container *ngIf="isCheckList">
                 <span class="checklist-container d-flex flex-col mb-8" *ngIf="checkLists?.length">
                     <div class="mat-caption text-mute mb-4">Check List</div>
-                    <mat-checkbox class="mb-12" *ngFor="let listItem of checkLists; trackBy: trackByFn" name="list.id"
-                        [checked]="listItem.completed" (change)="changeCheckListItem(listItem)">
-                        <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
-                    </mat-checkbox>
+                    <div *ngFor="let listItem of checkLists; trackBy: trackByFn" class="d-flex wp-100 justify-content-between align-items-center mb-8">
+                        <mat-checkbox class="m-0" name="list.id"
+                            [checked]="listItem.completed" (change)="changeCheckListItem(listItem)">
+                            <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
+                        </mat-checkbox>
+                        <button (click)="removeCheckItem(listItem)" mat-icon-button class="check-action">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
                 </span>
 
                 <mat-form-field appearance="legacy">

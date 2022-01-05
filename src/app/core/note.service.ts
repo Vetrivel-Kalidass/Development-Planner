@@ -60,7 +60,7 @@ export class NoteService {
     const currentNotes: NoteItem[] = this._localStorageService.getLocalItem(AppValues.notes);
 
     const newNotes: NoteItem[] = currentNotes.filter(t => t.id !== note.id);
-    this._localStorageService.setLocalItem(AppValues.tasks, newNotes);
+    this._localStorageService.setLocalItem(AppValues.notes, newNotes);
     this.setAllNotes();
   }
 

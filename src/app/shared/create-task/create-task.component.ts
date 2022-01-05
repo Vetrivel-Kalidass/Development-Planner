@@ -49,6 +49,10 @@ export class CreateTaskComponent implements OnInit {
     });
   }
 
+  removeCheckItem(listItem: CheckListItem) {
+    this.checkLists = this.checkLists.filter(item => item.id !== listItem.id);
+  }
+
   createTaskItemForm(taskItem: TaskItem | null = null) {
     this.taskItemForm = this._formBuilder.group({
       title: this._formBuilder.control(taskItem?.title),
