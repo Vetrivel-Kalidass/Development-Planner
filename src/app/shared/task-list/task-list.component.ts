@@ -31,6 +31,7 @@ export class TaskListComponent implements OnInit {
   
   drop(event: CdkDragDrop<string[]>) {
     if (!this.allTasks?.length) return;
+    this.indexExpanded = -1;
     moveItemInArray(this.allTasks, event.previousIndex, event.currentIndex);
   }
 

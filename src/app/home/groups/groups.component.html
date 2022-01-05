@@ -21,32 +21,30 @@
     </div>
   </div>
 
-<div class="container">
-    <div *ngIf="allTags$ | async as _allTags" class="row">
-        <div *ngFor="let tag of _allTags; trackBy: trackByFn" class="col-lg-3 col-md-4 col-xs-12 col-6 group-tiles-container">
-            <mat-card class="hover-box-shadow-1-tile p-0">
-                <mat-card-header [style.background]="tag.color">
-                    <div class="wp-100 d-flex justify-content-end">
-                        <button mat-icon-button [matMenuTriggerFor]="moreOptions">
-                            <mat-icon>more_vert</mat-icon>
-                        </button>
-                        <mat-menu #moreOptions="matMenu" xPosition="before">
-                            <button mat-menu-item (click)="editTag(tag)">
-                                <mat-icon class="material-icons-outlined">edit</mat-icon>
-                                <span>Edit</span>
-                            </button>
-                            <button mat-menu-item (click)="deleteTag(tag)">
-                                <mat-icon class="material-icons-outlined">delete</mat-icon>
-                                <span>Delete</span>
-                            </button>
-                        </mat-menu>  
-                    </div>
-                </mat-card-header>
-                <mat-card-content class="text-truncate px-10 py-16">
-                    <mat-card-title *ngIf="tag.title">{{ tag.title }}</mat-card-title>
-                    <mat-card-subtitle *ngIf="tag.description">{{ tag.description }}</mat-card-subtitle>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
-</div>
+  <div *ngIf="allTags$ | async as _allTags" class="row m-8">
+      <div *ngFor="let tag of _allTags; trackBy: trackByFn" class="col-lg-3 col-md-4 col-xs-12 col-6 group-tiles-container">
+          <mat-card class="hover-box-shadow-1-tile p-0">
+              <mat-card-header [style.background]="tag.color">
+                  <div class="wp-100 d-flex justify-content-end">
+                      <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                          <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #moreOptions="matMenu" xPosition="before">
+                          <button mat-menu-item (click)="editTag(tag)">
+                              <mat-icon class="material-icons-outlined">edit</mat-icon>
+                              <span>Edit</span>
+                          </button>
+                          <button mat-menu-item (click)="deleteTag(tag)">
+                              <mat-icon class="material-icons-outlined">delete</mat-icon>
+                              <span>Delete</span>
+                          </button>
+                      </mat-menu>  
+                  </div>
+              </mat-card-header>
+              <mat-card-content class="text-truncate pl-10 py-16 mr-10">
+                  <mat-card-title *ngIf="tag.title">{{ tag.title }}</mat-card-title>
+                  <mat-card-subtitle *ngIf="tag.description">{{ tag.description }}</mat-card-subtitle>
+              </mat-card-content>
+          </mat-card>
+      </div>
+  </div>

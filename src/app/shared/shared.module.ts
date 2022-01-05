@@ -11,6 +11,7 @@ import { CoreModule } from '../core/core.module';
 import { RouterModule } from '@angular/router';
 import { NoteListComponent } from './note-list/note-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MainActionsMenuComponent,
     CreateTaskComponent,
     CreateTagComponent,
-    NoteListComponent
+    NoteListComponent,
+    SideNavbarComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     TaskListComponent,
     MainActionsMenuComponent,
     CreateTaskComponent,
-    NoteListComponent
+    NoteListComponent,
+    SideNavbarComponent
   ]
 })
 export class SharedModule { }
