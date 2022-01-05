@@ -10,7 +10,7 @@ import { CreateTagComponent } from './create-tag/create-tag.component';
 import { CoreModule } from '../core/core.module';
 import { RouterModule } from '@angular/router';
 import { NoteListComponent } from './note-list/note-list.component';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import { NoteListComponent } from './note-list/note-list.component';
     FormsModule,
     ReactiveFormsModule,
     CoreModule,
-    RouterModule
+    RouterModule,
+    DragDropModule
   ],
   exports: [
     MiniNavbarComponent,

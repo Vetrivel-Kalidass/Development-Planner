@@ -4,6 +4,7 @@ import { TaskServiceService } from 'src/app/core/task-service.service';
 import { CheckListItem, TagItem, TaskItem } from 'src/app/models';
 import { CreateTaskComponent } from '../create-task/create-task.component';
 import { AppValues } from '../data';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-task-list',
@@ -26,6 +27,11 @@ export class TaskListComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+  
+  drop(event: CdkDragDrop<string[]>) {
+    if (!this.allTasks?.length) return;
+    moveItemInArray(this.allTasks, event.previousIndex, event.currentIndex);
   }
 
   getTagColor(tagId: number): string {
