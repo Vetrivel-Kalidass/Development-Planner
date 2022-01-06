@@ -28,4 +28,8 @@ export class LocalStorageService {
     localStorage.clear();
   }
 
+  generateUId(): number {
+    return Math.floor(Math.random() * 100000);
+  }
+
 }

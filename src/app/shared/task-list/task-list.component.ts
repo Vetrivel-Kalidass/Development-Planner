@@ -4,7 +4,7 @@ import { TaskServiceService } from 'src/app/core/task-service.service';
 import { CheckListItem, TagItem, TaskItem } from 'src/app/models';
 import { CreateTaskComponent } from '../create-task/create-task.component';
 import { AppValues } from '../data';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-task-list',
@@ -13,11 +13,13 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 })
 export class TaskListComponent implements OnInit {
   
-  @Input() allTasks: TaskItem[] | null | undefined;
+  @Input() allTasks: TaskItem[] = [];
   @Input() allTags: TagItem[] | null | undefined;
-  today!: string;
 
-  indexExpanded: number = 0;
+  focusedTasks: TaskItem[] = [];
+  selectedTask: TaskItem | null | undefined;
+  today!: string;
+  indexExpanded: number = -1;
 
   constructor(
     private _taskService: TaskServiceService,
@@ -29,10 +31,17 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  drop(event: CdkDragDrop<string[]>) {
-    if (!this.allTasks?.length) return;
-    this.indexExpanded = -1;
-    moveItemInArray(this.allTasks, event.previousIndex, event.currentIndex);
+  drop(event: CdkDragDrop<any[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
   }
 
   getTagColor(tagId: number): string {

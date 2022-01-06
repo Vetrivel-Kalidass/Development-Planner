@@ -8,16 +8,16 @@
         <mat-icon class="material-icons-outlined">tune</mat-icon>
     </button>
       <mat-menu #tuneOptions="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="filterByInCompleted()">
           <span>Incompleted Tasks</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="filterByCompleted()">
           <span>Completed Tasks</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="fetchTasks()">
           <span>All Tasks</span>
         </button>
       </mat-menu>      
   </div>
 </div>
-<app-task-list [allTasks]="allTasks$ | async" [allTags]="allTags$ | async"></app-task-list>
+<app-task-list [allTasks]="filteredTasks" [allTags]="allTags$ | async"></app-task-list>

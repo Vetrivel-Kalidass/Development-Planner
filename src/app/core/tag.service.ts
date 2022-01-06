@@ -27,8 +27,10 @@ export class TagService {
   createTag(newTag: TagItem) {
     const currentTags: TagItem[] = this._localStorageService.getLocalItem(AppValues.tags);
     let noOfTags: number | null = currentTags?.length;
+    let uId: number = this._localStorageService.generateUId();
+    if (currentTags.find(tag => tag.id === uId)) uId = this._localStorageService.generateUId();
 
-    const newTags: TagItem[] = noOfTags ? [ ...currentTags, {  id: noOfTags + 1, ...newTag } ] : [ { id: 1, ...newTag } ];
+    const newTags: TagItem[] = noOfTags ? [ ...currentTags, {  id: uId, ...newTag } ] : [ { id: uId, ...newTag } ];
     this._localStorageService.setLocalItem(AppValues.tags, newTags);
     this.setAllTags();
   }

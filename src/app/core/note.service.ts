@@ -32,10 +32,12 @@ export class NoteService {
   createNote(newNote: NoteItem) {
     const currentNotes: NoteItem[] = this._localStorageService.getLocalItem(AppValues.notes);
     let noOfNotes: number | null = currentNotes?.length;
+    let uId: number = this._localStorageService.generateUId();
+    if (currentNotes.find(note => note.id === uId)) uId = this._localStorageService.generateUId();
 
     newNote = {
       ...newNote,
-      id: noOfNotes ? noOfNotes + 1 : 1,
+      id: uId,
       createdAt: new Date().toISOString(),
     };
     const newNotes: NoteItem[] = noOfNotes ? [ ...currentNotes, newNote ] : [ newNote ];
