@@ -7,6 +7,7 @@ import { CreateNoteComponent } from './create-note/create-note.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxEditorModule } from 'ngx-editor';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgxEditorModule
   ]
 })
 export class NotesModule { }

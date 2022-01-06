@@ -27,18 +27,6 @@
 
             
             <div *ngIf="note.description" class="mat-body-1 text-mute mb-16">{{ note.description }}</div>
-        
-            <span class="checklist-container d-flex flex-col" *ngIf="note.checkList?.length">
-                <mat-checkbox 
-                    class="text-mute mb-12" 
-                    *ngFor="let listItem of note.checkList; trackBy: trackByFn" 
-                    name="listItem.id" 
-                    (change)="checklistChange(note, listItem)" 
-                    [checked]="listItem.completed"
-                >
-                    <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
-                </mat-checkbox>
-            </span>
 
         </mat-expansion-panel>
     </ng-container>

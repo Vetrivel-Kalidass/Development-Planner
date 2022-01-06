@@ -23,8 +23,8 @@ export interface NoteItem {
     title?: string;
     description: string;
     tagId: number;
-    checkListType: boolean;
-    checkList?: CheckListItem[];
+    // checkListType: boolean;
+    // checkList?: CheckListItem[];
     createdAt: string;
 }
 

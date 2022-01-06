@@ -283,6 +283,10 @@ mat-expansion-panel.note-item {
 	padding: 16px;
 	box-sizing: border-box;
 	overflow-y: auto;
+
+	form > .d-flex {
+		flex-direction: column;
+	}
 }
 	
 /* TAG SELECTION COMPONENT */
@@ -503,6 +507,36 @@ mat-drawer.side-navbar {
 	.form-container {
 		width: 402px !important;
 		min-height: 500px !important;
+	}
+	.form-container.page-view {
+		width: 100% !important;
+		height: 100%;
+		box-sizing: border-box;
+
+		mat-divider {
+			display: none !important;
+		}
+		form {
+			margin-top: 12px;
+
+			ngx-editor .NgxEditor__Content {
+				min-height: calc(100vh - 250px) !important;
+			}
+		}
+		form > .d-flex {
+			flex-direction: row;
+			margin-bottom: 12px;
+
+			mat-form-field {
+				width: 260px;
+				margin-right: 12px;
+			}
+		}
+		mat-dialog-actions {
+			position: absolute;
+			right: 16px;
+			top: 16px;
+		}
 	}
 	mat-toolbar.miniNavbar {
 		display: none !important;

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NoteService } from 'src/app/core/note.service';
-import { CheckListItem, NoteItem, TagItem } from 'src/app/models';
+import { NoteItem, TagItem } from 'src/app/models';
 import { AppValues } from '../data';
 
 @Component({
@@ -31,18 +31,6 @@ export class NoteListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  checklistChange(note: NoteItem, checkListItem: CheckListItem) {
-    let modifiedList: CheckListItem[];
-    if (!note?.checkList?.length) return;
-    modifiedList = note?.checkList?.map(item => {
-      if (item.id === checkListItem.id) {
-        return { ...item, completed: !item.completed };
-      }
-      return item;
-    });
-    this._NoteService.editNote({ ...note, checkList: modifiedList });
   }
 
   editNote(note: NoteItem) {

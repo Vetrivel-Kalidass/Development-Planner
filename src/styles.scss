@@ -1,31 +1,32 @@
-@import '~@angular/material/theming';
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+@import "~@angular/material/theming";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap");
 
-@import './styles/var.styles';
-@import './styles/components.styles';
-@import './styles/box.styles';
-@import './styles/common.styles';
-@import './styles/custom-mat-com.styles';
+@import "./styles/var.styles";
+@import "./styles/components.styles";
+@import "./styles/box.styles";
+@import "./styles/common.styles";
+@import "./styles/custom-mat-com.styles";
 
 @include mat-core();
 @include angular-material-theme($dynamic-light-app-theme);
 
 .dark-mode {
-    @include angular-material-theme($dynamic-dark-app-theme);
+  @include angular-material-theme($dynamic-dark-app-theme);
 }
 
 @include angular-material-typography($dynamic-typography);
 
-
-
 /* You can add global styles to this file, and also import other style files */
-html, body, main#mainContainer, .mat-drawer-container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
+html,
+body,
+main#mainContainer,
+.mat-drawer-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -39,7 +40,7 @@ main#mainContainer {
 }
 
 .bg-disabled {
-    background-color: $mat-light-disabled-list-option !important;
+  background-color: $mat-light-disabled-list-option !important;
 }
 .bg-back {
   background-color: $mat-light-background !important;
@@ -49,7 +50,7 @@ main#mainContainer {
 }
 
 .text-disabled {
-    color: $mat-light-disabled-list-option !important;
+  color: $mat-light-disabled-list-option !important;
 }
 .text-back {
   color: $mat-dark-text !important;
@@ -60,7 +61,6 @@ main#mainContainer {
 .text-mute {
   color: rgba(0, 0, 0, 0.6) !important;
 }
-
 
 .bg-white {
   background-color: $mat-white !important;
@@ -102,41 +102,65 @@ main#mainContainer {
 }
 
 .dark-mode {
-    main#mainContainer {
-      background: $mat-dark-background;
-      color: $mat-dark-text;
-    }
+  main#mainContainer {
+    background: $mat-dark-background;
+    color: $mat-dark-text;
+  }
 
-    .bg-disabled {
-        background-color: $mat-dark-background !important;
-    }
-    .bg-back {
-      background-color: $mat-dark-background !important;
-    }
-    .bg-front {
-      background-color: $mat-light-background !important;
-    }
-    .text-disabled {
-        color: $mat-dark-disabled-list-option !important;
-    }
-    .text-back {
-      color: $mat-light-text !important;
-    }
-    .text-front {
-      color: $mat-dark-text !important;
-    }
-    .text-mute {
-      color: $mat-dark-hint-text !important;
-    }
-    .search-bar {
-      border: $dark-border;
-      input {
-        color: $mat-white-6-opacity !important;
-        &::placeholder {
-          color: $mat-white-38-opacity !important;
-        }
+  .bg-disabled {
+    background-color: $mat-dark-background !important;
+  }
+  .bg-back {
+    background-color: $mat-dark-background !important;
+  }
+  .bg-front {
+    background-color: $mat-light-background !important;
+  }
+  .text-disabled {
+    color: $mat-dark-disabled-list-option !important;
+  }
+  .text-back {
+    color: $mat-light-text !important;
+  }
+  .text-front {
+    color: $mat-dark-text !important;
+  }
+  .text-mute {
+    color: $mat-dark-hint-text !important;
+  }
+  .search-bar {
+    border: $dark-border;
+    input {
+      color: $mat-white-6-opacity !important;
+      &::placeholder {
+        color: $mat-white-38-opacity !important;
       }
     }
+  }
+
+  /* NGX_EDITOR */
+  ngx-editor-menu {
+    .NgxEditor__MenuBar {
+      background-color: inherit !important;
+    }
+    .NgxEditor__MenuItem--IconContainer > svg {
+      fill: $mat-white !important;
+    }
+    .NgxEditor__MenuItem--IconContainer:hover > svg,
+    ngx-dropdown:hover > .NgxEditor__Dropdown--Text,
+    .NgxEditor__Dropdown--DropdownMenu,
+    form,
+    .NgxEditor__MenuItem--Active,
+    .NgxEditor__MenuItem--Active svg {
+      fill: $mat-light-text !important;
+      color: $mat-light-text !important;
+    }
+  }
+  ngx-editor .NgxEditor {
+    background-color: inherit;
+    color: inherit !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 }
 
 a {
@@ -152,15 +176,15 @@ a {
     border: $light-border !important;
     background-color: $mat-white !important;
     color: $mat-light-text !important;
-    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+      0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
   }
-  
+
   .dark-mode {
     .search-bar.expand {
       border: $dark-border !important;
       background-color: $mat-dark-card !important;
       color: $mat-dark-text !important;
     }
-
   }
 }
