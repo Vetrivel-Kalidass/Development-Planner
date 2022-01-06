@@ -103,7 +103,7 @@ export class CreateTaskComponent implements OnInit {
       }
       this._taskService.editTask(modifiedTask);
     }
-    // this._matDialogRef.close();
+    this._matDialogRef.close();
   }
   
   trackByFn(index: number, item: object): number { 

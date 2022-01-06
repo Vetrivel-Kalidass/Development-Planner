@@ -6,6 +6,7 @@
 @import './styles/components.styles';
 @import './styles/box.styles';
 @import './styles/common.styles';
+@import './styles/custom-mat-com.styles';
 
 @include mat-core();
 @include angular-material-theme($dynamic-light-app-theme);
@@ -89,6 +90,16 @@ main#mainContainer {
 .text-accent {
   color: var(--theme-accent-500) !important;
 }
+.search-bar {
+  border: $light-border;
+  input {
+    background: transparent !important;
+    color: $mat-black-6-opacity !important;
+    &::placeholder {
+      color: $mat-black-38-opacity !important;
+    }
+  }
+}
 
 .dark-mode {
     main#mainContainer {
@@ -117,9 +128,39 @@ main#mainContainer {
     .text-mute {
       color: $mat-dark-hint-text !important;
     }
+    .search-bar {
+      border: $dark-border;
+      input {
+        color: $mat-white-6-opacity !important;
+        &::placeholder {
+          color: $mat-white-38-opacity !important;
+        }
+      }
+    }
 }
 
 a {
   text-decoration: none !important;
   color: inherit !important;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    border: none !important;
+  }
+  .search-bar.expand {
+    border: $light-border !important;
+    background-color: $mat-white !important;
+    color: $mat-light-text !important;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%) !important;
+  }
+  
+  .dark-mode {
+    .search-bar.expand {
+      border: $dark-border !important;
+      background-color: $mat-dark-card !important;
+      color: $mat-dark-text !important;
+    }
+
+  }
 }

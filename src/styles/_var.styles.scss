@@ -2,6 +2,10 @@
 
 $mat-white: #ffffff;
 $mat-black: #000000;
+$mat-white-6-opacity: rgba(255, 255, 255, 0.6);
+$mat-white-38-opacity: rgba(255, 255, 255, 0.38);
+$mat-black-6-opacity: rgba(0, 0, 0, 0.6); //mute
+$mat-black-38-opacity: rgba(0, 0, 0, 0.38); //disabed
 
 // LIGHT COMPONENTS COLORS
 $mat-light-status-bar: map_get($mat-grey, 300);
@@ -221,6 +225,12 @@ $dynamic-dark-app-theme: (
   foreground: $dynamic-dark-theme-foreground,
   background: $dynamic-dark-theme-background,
 );
+
+$primary-color: var(--theme-primary-200);
+$accent-color: var(--theme-accent-500);
+$warn-color: map_get($mat-red, 500);
+$light-border: 1px solid $mat-light-divider;
+$dark-border: 1px solid $mat-dark-divider;
 
 $dynamic-typography: mat-typography-config(
   $font-family: 'Roboto, "Helvetica Neue", sans-serif',

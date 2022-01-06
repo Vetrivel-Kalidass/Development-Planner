@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { map, Observable, Subscription } from 'rxjs';
 import { TagService } from 'src/app/core/tag.service';
 import { TaskServiceService } from 'src/app/core/task-service.service';
 import { TagItem, TaskItem } from 'src/app/models';
+import { CreateTaskComponent } from 'src/app/shared/create-task/create-task.component';
 
 @Component({
   selector: 'app-work-list',
@@ -14,17 +16,16 @@ export class WorkListComponent implements OnInit, OnDestroy {
   allTasks: TaskItem[] | null | undefined;
   filteredTasks: TaskItem[] = [];
   allTags$: Observable<TagItem[] | null | undefined>;
-
-  tasksSubs$: Subscription;
+  searchInputValue: string = '';
+  searchExpanded: boolean = false;
+  tasksSubs$!: Subscription;
 
   constructor(
     private _taskService: TaskServiceService,
-    private _tagService: TagService
+    private _tagService: TagService,
+    private _matDialog: MatDialog
   ) { 
-    this.tasksSubs$ = this._taskService.allTasks.subscribe(tasks => {
-      this.allTasks = tasks;
-      this.filteredTasks = this.allTasks?.length ? this.allTasks : [];
-    });
+    this.fetchTasks();
     this.allTags$ = this._tagService.allTags;
   }
 
@@ -32,7 +33,23 @@ export class WorkListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.tasksSubs$.unsubscribe();
+    if (this.tasksSubs$) this.tasksSubs$.unsubscribe();
+  }
+
+  fetchTasks() {
+    this.tasksSubs$ = this._taskService.allTasks.subscribe(tasks => {
+      this.allTasks = tasks;
+      this.filteredTasks = this.allTasks?.length ? this.allTasks : [];
+    });
+  }
+
+  createTask() {
+    const dialogRef = this._matDialog.open(CreateTaskComponent, { panelClass: "full-view-dialog" });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      this.fetchTasks();
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   filterByCompleted() {
@@ -45,8 +62,19 @@ export class WorkListComponent implements OnInit, OnDestroy {
     this.filteredTasks = this.allTasks.filter(task => !task.completed);
   }
 
-  fetchTasks() {
+  showAllTasks() {
     this.filteredTasks = this.allTasks?.length ? this.allTasks : [];
+  }
+
+  searchTaskBtnEvent() {
+    this.searchExpanded = !this.searchExpanded;
+    this.searchTask();
+  }
+
+  searchTask() {
+    if (!this.allTasks) return;
+    this.filteredTasks = this.allTasks.filter(task => 
+        task.title.toLowerCase().includes(this.searchInputValue.toLowerCase()));
   }
 
 }

@@ -6,6 +6,7 @@ import { WorkListComponent } from './work-list.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModule } from 'src/app/core/core.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CoreModule } from 'src/app/core/core.module';
     WorkListRoutingModule,
     MaterialModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    FormsModule
   ]
 })
 export class WorkListModule { }

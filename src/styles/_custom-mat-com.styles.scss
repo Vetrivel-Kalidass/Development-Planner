@@ -20,6 +20,12 @@ a.logo-button {
       height: 100%;
     }
 }
+.mat-mini-fab.text-btn {
+  width: fit-content !important;
+  padding-left: 8px !important;
+  padding-right: 12px !important;
+  border-radius: 25px !important;
+}
 
 /* MENU */
 .mat-menu-item.header-nav-item {
