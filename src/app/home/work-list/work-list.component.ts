@@ -6,6 +6,8 @@ import { TagService } from 'src/app/core/tag.service';
 import { TaskServiceService } from 'src/app/core/task-service.service';
 import { TagItem, TaskItem } from 'src/app/models';
 import { CreateTaskComponent } from 'src/app/shared/create-task/create-task.component';
+import { AppValues } from 'src/app/shared/data';
+import { SAMPLE_NOTES, SAMPLE_TAGS, SAMPLE_TASKS } from 'src/app/shared/data/sample.data';
 
 @Component({
   selector: 'app-work-list',
@@ -48,6 +50,14 @@ export class WorkListComponent implements OnInit, OnDestroy {
       this.allTasks = !this.tagFilterId ? tasks : tasks?.filter(task => task.tagId === this.tagFilterId);
       this.filteredTasks = this.allTasks?.length ? this.allTasks : [];
     });
+    if (!this.allTasks?.length) {
+      this._taskService.sampleEntryNotify().onAction().subscribe(data => {
+        localStorage.setItem(AppValues.tasks, JSON.stringify(SAMPLE_TASKS));
+        localStorage.setItem(AppValues.notes, JSON.stringify(SAMPLE_NOTES));
+        localStorage.setItem(AppValues.tags, JSON.stringify(SAMPLE_TAGS));
+        location.reload();
+      });
+    }
   }
 
   createTask() {

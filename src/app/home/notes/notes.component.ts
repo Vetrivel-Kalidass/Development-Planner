@@ -4,6 +4,8 @@ import { Observable, Subscription } from 'rxjs';
 import { NoteService } from 'src/app/core/note.service';
 import { TagService } from 'src/app/core/tag.service';
 import { NoteItem, TagItem } from 'src/app/models';
+import { AppValues } from 'src/app/shared/data';
+import { SAMPLE_TASKS, SAMPLE_NOTES, SAMPLE_TAGS } from 'src/app/shared/data/sample.data';
 
 @Component({
   selector: 'app-notes',
@@ -41,6 +43,14 @@ export class NotesComponent implements OnInit, OnDestroy {
       this.allNotes = notes;
       this.filteredNotes = this.allNotes?.length ? this.allNotes : [];
     });
+    if (!this.allNotes?.length) {
+      this._noteService.sampleEntryNotify().onAction().subscribe(data => {
+        localStorage.setItem(AppValues.tasks, JSON.stringify(SAMPLE_TASKS));
+        localStorage.setItem(AppValues.notes, JSON.stringify(SAMPLE_NOTES));
+        localStorage.setItem(AppValues.tags, JSON.stringify(SAMPLE_TAGS));
+        location.reload();
+      });
+    }
   }
 
   createNote() {

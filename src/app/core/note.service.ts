@@ -69,4 +69,8 @@ export class NoteService {
     this.setAllNotes();
   }
 
+  sampleEntryNotify() {
+    return this._commonService.openSnackBar({ message: "Do you want sample data to test?", action: "YES", config: { duration: 30000 } });
+  }
+
 }

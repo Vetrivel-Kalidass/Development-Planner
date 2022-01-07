@@ -18,7 +18,7 @@ export const DP_THEMES: ThemeData = {
     name: 'Golden',
     keyValue: 'golden-theme',
     primary: '#FFDE59',
-    accent: '#323232',
+    accent: '#deb200',
     darkMode: false
   },
   availableThemes: [
@@ -26,7 +26,7 @@ export const DP_THEMES: ThemeData = {
       name: 'Golden',
       keyValue: 'golden-theme',
       primary: '#FFDE59',
-      accent: '#323232',
+      accent: '#deb200',
       darkMode: false
     },
     {
