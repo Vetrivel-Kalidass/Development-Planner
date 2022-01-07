@@ -1,5 +1,7 @@
 <div class="p-16">
-    <ng-container *ngFor="let note of allNotes; trackBy: trackByFn; let i = index">
+        <div cdkDropList class="list-container" (cdkDropListDropped)="drop($event)">
+            <div class="list-box" *ngFor="let note of allNotes; trackBy: trackByFn; let i = index" cdkDrag>
+              <div class="list-custom-placeholder" *cdkDragPlaceholder></div>
         <mat-expansion-panel [expanded]="indexExpanded !== i" class="note-item hover-box-shadow-1-tile" disabled hideToggle>
             <mat-expansion-panel-header>
                 <div [style.background]="getTagColor(note.tagId)" class="tag-bar"></div>
@@ -24,10 +26,9 @@
                     </button>
                 </mat-menu>
             </mat-expansion-panel-header>
-
             
-            <div *ngIf="note.description" class="mat-body-1 text-mute mb-16">{{ note.description }}</div>
-
+            <div [innerHTML]="note.description" class="mb-16"></div>
         </mat-expansion-panel>
-    </ng-container>
+        </div>
+        </div>
 </div>

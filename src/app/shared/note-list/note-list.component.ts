@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NoteService } from 'src/app/core/note.service';
@@ -11,7 +12,7 @@ import { AppValues } from '../data';
 })
 export class NoteListComponent implements OnInit {
 
-  @Input() allNotes: NoteItem[] | null | undefined;
+  @Input() allNotes: NoteItem[] = [];
   @Input() allTags: TagItem[] | null | undefined;
 
   indexExpanded: number = -1;
@@ -40,7 +41,11 @@ export class NoteListComponent implements OnInit {
   deleteNote(note: NoteItem) {
     this._NoteService.deleteNote(note);
   }
-  
+
+  drop(event: CdkDragDrop<any[]>) {
+    moveItemInArray(this.allNotes, event.previousIndex, event.currentIndex);
+  }
+
   trackByFn(index: number, item: object): number { 
     return index; 
   }

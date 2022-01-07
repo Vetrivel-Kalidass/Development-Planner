@@ -1,10 +1,15 @@
 <div class="d-flex justify-content-between align-items-center px-16 pt-16">
   <div class="mat-headline m-0">Notes</div>
-  <div class="options-menu">
-    <button mat-icon-button class="mr-8">
-        <mat-icon class="material-icons-outlined">search</mat-icon>
-    </button>
-    <button disabled mat-icon-button [matMenuTriggerFor]="tuneOptions">
+
+  <div class="options-menu d-flex flex-row">
+    <!-- search-bar -->
+    <div class="search-bar mr-8" [ngClass]="{ 'expand': searchExpanded }">
+      <input type="text" placeholder="Search by title" [(ngModel)]="searchInputValue" (input)="searchNotes()" (blur)="searchNotesBtnEvent()" />
+      <button mat-icon-button (click)="searchNotesBtnEvent()">
+        <mat-icon class="text-hint">search</mat-icon>
+      </button>
+    </div>
+    <button disabled mat-icon-button [matMenuTriggerFor]="tuneOptions" class="mr-8">
         <mat-icon class="material-icons-outlined">tune</mat-icon>
     </button>
       <mat-menu #tuneOptions="matMenu">
@@ -18,7 +23,12 @@
           <span>All Tasks</span>
         </button>
       </mat-menu>      
+    
+      <button (click)="createNote()" mat-mini-fab color="primary" class="text-btn text-black">
+        <mat-icon>add</mat-icon>
+        <span>New</span>
+      </button>
   </div>
 </div>
 
-<app-note-list [allNotes]="allNotes$ | async" [allTags]="allTags$ | async"></app-note-list>
+<app-note-list [allNotes]="filteredNotes" [allTags]="allTags$ | async"></app-note-list>
