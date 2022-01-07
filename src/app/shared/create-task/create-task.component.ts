@@ -94,7 +94,7 @@ export class CreateTaskComponent implements OnInit, OnDestroy {
   }
 
   submitForm() {
-    if (this.taskItemForm.invalid) return;
+    if (this.taskItemForm.invalid || this.taskItemForm.pristine) return;
     if (!this.selectedTaskItem) {
       const newTask: TaskItem = {
         ...this.taskItemForm.value,

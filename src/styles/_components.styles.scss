@@ -493,6 +493,11 @@ ngx-editor .NgxEditor__Content {
 	min-height: calc(100vh - 450px) !important;
 }
 
+/* NGX-COLOR  */
+.color-selector > * {
+    padding: 0px !important;
+}
+
 @media (max-width: 768px) {
 	.search-bar.expand {
 		position: fixed !important;

@@ -52,7 +52,7 @@ export class CreateNoteComponent implements OnInit {
   }
 
   submitForm() {
-    if (this.noteItemForm.invalid) return;
+    if (this.noteItemForm.invalid || this.noteItemForm.pristine) return;
     if (!this.selectedNoteItem) {
       const newTask: NoteItem = {
         ...this.noteItemForm.value,

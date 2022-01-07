@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TagService } from 'src/app/core/tag.service';
 import { FormType, TagItem } from 'src/app/models';
-import { AppValues } from '../data';
+import { AppValues, COLORS } from '../data';
+import { ColorEvent } from 'ngx-color';
 
 @Component({
   selector: 'app-create-tag',
@@ -16,6 +17,7 @@ export class CreateTagComponent implements OnInit, OnDestroy {
   formType: FormType = this.appValues.create;
   selectedTagItem: TagItem | null | undefined;
   tagItemForm!: FormGroup;
+  defaultColors: string[] = COLORS;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: TagItem | null | undefined,
@@ -44,7 +46,7 @@ export class CreateTagComponent implements OnInit, OnDestroy {
   }
 
   submitForm() {
-    if (this.tagItemForm.invalid) return;
+    if (this.tagItemForm.invalid || this.tagItemForm.pristine) return;
     if (!this.selectedTagItem) {
       this._tagService.createTag(this.tagItemForm.value);
     }
@@ -63,9 +65,17 @@ export class CreateTagComponent implements OnInit, OnDestroy {
     this.tagItemForm.reset();
     this._matDialogRef.close();
   }
+  
+  handleChangeColor($event: ColorEvent) {
+    this.patchColor($event.color.hex);
+  }
 
-  patchColor(e: any) {
-    this.tagItemForm.patchValue({ color: e?.target?.value });
+  get currentColor() {
+    return this.tagItemForm.get('color')?.value;
+  }
+
+  patchColor(e: string) {
+    this.tagItemForm.patchValue({ color: e });
   }
 
 }

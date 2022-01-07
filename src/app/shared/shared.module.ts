@@ -13,7 +13,7 @@ import { NoteListComponent } from './note-list/note-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { SettingsComponent } from './settings/settings.component';
-
+import { ColorTwitterModule } from 'ngx-color/twitter';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { SettingsComponent } from './settings/settings.component';
     ReactiveFormsModule,
     CoreModule,
     RouterModule,
-    DragDropModule
+    DragDropModule,
+    ColorTwitterModule
   ],
   exports: [
     MiniNavbarComponent,
