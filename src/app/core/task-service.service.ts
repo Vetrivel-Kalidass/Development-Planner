@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TaskItem } from '../models';
 import { AppValues } from '../shared/data';
+import { CommonService } from './common.service';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable()
@@ -10,7 +11,8 @@ export class TaskServiceService {
   private _allTasks: BehaviorSubject<TaskItem[] | null | undefined> = new BehaviorSubject<TaskItem[] | null | undefined>(null);
 
   constructor(
-    private _localStorageService: LocalStorageService
+    private _localStorageService: LocalStorageService,
+    private _commonService: CommonService
   ) {}
 
   get allTasks(): Observable<TaskItem[] | null | undefined> {
@@ -38,6 +40,7 @@ export class TaskServiceService {
     const newTasks: TaskItem[] = noOfTasks ? [ ...currentTasks, newTask ] : [ newTask ];
     this._localStorageService.setLocalItem(AppValues.tasks, newTasks);
     this.setAllTasks();
+    this._commonService.openSnackBar({ message: "Task created!!", action: "", config: { duration: 3000 } });
   }
 
   editTask(modifiedTask: TaskItem) {
