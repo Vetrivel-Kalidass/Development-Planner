@@ -63,6 +63,9 @@ main#mainContainer {
 .text-mute {
   color: rgba(0, 0, 0, 0.6) !important;
 }
+.text-match-bg {
+  color: var(--theme-primary-contrast-500) !important;
+}
 
 .bg-white {
   background-color: $mat-white !important;

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Params } from '@angular/router';
 import { map, Observable, Subscription } from 'rxjs';
 import { TagService } from 'src/app/core/tag.service';
 import { TaskServiceService } from 'src/app/core/task-service.service';
@@ -18,14 +19,20 @@ export class WorkListComponent implements OnInit, OnDestroy {
   allTags$: Observable<TagItem[] | null | undefined>;
   searchInputValue: string = '';
   searchExpanded: boolean = false;
+  tagFilterId: number = -1;
+
   tasksSubs$!: Subscription;
 
   constructor(
+    private _activatedRoute: ActivatedRoute,
     private _taskService: TaskServiceService,
     private _tagService: TagService,
     private _matDialog: MatDialog
   ) { 
-    this.fetchTasks();
+    this._activatedRoute.queryParams.subscribe((params: Params) => {
+      this.tagFilterId = +params['tag'];
+      this.fetchTasks();  
+    });
     this.allTags$ = this._tagService.allTags;
   }
 
@@ -38,7 +45,7 @@ export class WorkListComponent implements OnInit, OnDestroy {
 
   fetchTasks() {
     this.tasksSubs$ = this._taskService.allTasks.subscribe(tasks => {
-      this.allTasks = tasks;
+      this.allTasks = !this.tagFilterId ? tasks : tasks?.filter(task => task.tagId === this.tagFilterId);
       this.filteredTasks = this.allTasks?.length ? this.allTasks : [];
     });
   }

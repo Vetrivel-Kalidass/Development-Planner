@@ -188,7 +188,7 @@ mat-expansion-panel.task-item, mat-expansion-panel.note-item {
 		}
 
 		.mat-expansion-panel-body {
-			padding: 0 22px 16px 16px !important;
+			padding: 0 22px 16px 22px !important;
 
 			& > * {
 				width: 100%;
@@ -484,6 +484,14 @@ mat-drawer.side-navbar {
   .search-bar, .search-bar * {
 	transition: all .3s ease-in-out;
   }
+
+/* NGX EDITOR */
+.NgxEditor__MenuBar {
+	flex-wrap: wrap !important;
+}
+ngx-editor .NgxEditor__Content {
+	min-height: calc(100vh - 450px) !important;
+}
 
 @media (max-width: 768px) {
 	.search-bar.expand {

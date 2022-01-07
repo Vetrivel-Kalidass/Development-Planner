@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TagService } from 'src/app/core/tag.service';
@@ -10,7 +10,7 @@ import { AppValues } from '../data';
   templateUrl: './create-tag.component.html',
   styleUrls: ['./create-tag.component.css']
 })
-export class CreateTagComponent implements OnInit {
+export class CreateTagComponent implements OnInit, OnDestroy {
 
   appValues = AppValues;
   formType: FormType = this.appValues.create;
@@ -29,6 +29,10 @@ export class CreateTagComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+      if (this.tagItemForm.dirty) this.submitForm();
   }
 
   createTagItemForm(tagItem: TagItem | null = null) {
@@ -51,6 +55,12 @@ export class CreateTagComponent implements OnInit {
       }
       this._tagService.editTag(modifiedTag);
     }
+    this.tagItemForm.reset();
+    this._matDialogRef.close();
+  }
+
+  cancel() {
+    this.tagItemForm.reset();
     this._matDialogRef.close();
   }
 

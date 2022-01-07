@@ -25,7 +25,7 @@ export class TagService {
   }
 
   createTag(newTag: TagItem) {
-    const currentTags: TagItem[] = this._localStorageService.getLocalItem(AppValues.tags);
+    const currentTags: TagItem[] = this._localStorageService.getLocalItem(AppValues.tags) || [];
     let noOfTags: number | null = currentTags?.length;
     let uId: number = this._localStorageService.generateUId();
     if (currentTags.find(tag => tag.id === uId)) uId = this._localStorageService.generateUId();

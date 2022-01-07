@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { AppValues } from '../data';
   templateUrl: './create-task.component.html',
   styleUrls: ['./create-task.component.css']
 })
-export class CreateTaskComponent implements OnInit {
+export class CreateTaskComponent implements OnInit, OnDestroy {
 
   appValues = AppValues;
   formType: FormType = this.appValues.create;
@@ -38,6 +38,14 @@ export class CreateTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.allTags$ = this._tagService.allTags;
+  }
+
+  ngOnDestroy(): void {
+      if (this.taskItemForm.dirty) this.submitForm();
+  }
+
+  toggleCheckList() {
+    this.taskItemForm.patchValue({ checkListType: !this.isCheckList });
   }
 
   changeCheckListItem(listItem: CheckListItem) {
@@ -103,6 +111,12 @@ export class CreateTaskComponent implements OnInit {
       }
       this._taskService.editTask(modifiedTask);
     }
+    this.taskItemForm.reset();
+    this._matDialogRef.close();
+  }
+
+  cancel() {
+    this.taskItemForm.reset();
     this._matDialogRef.close();
   }
   

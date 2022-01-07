@@ -46,7 +46,7 @@ export class CreateNoteComponent implements OnInit {
   createNoteItemForm(noteItem: NoteItem | null = null) {
     this.noteItemForm = this._formBuilder.group({
       title: this._formBuilder.control(noteItem?.title),
-      description: this._formBuilder.control(noteItem?.description),
+      description: this._formBuilder.control(noteItem?.description || ''),
       tagId: this._formBuilder.control(noteItem?.tagId)
     });
   }

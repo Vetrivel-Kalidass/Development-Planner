@@ -25,7 +25,7 @@ export class TaskServiceService {
   }
 
   createTask(newTask: TaskItem) {
-    const currentTasks: TaskItem[] = this._localStorageService.getLocalItem(AppValues.tasks);
+    const currentTasks: TaskItem[] = this._localStorageService.getLocalItem(AppValues.tasks) || [];
     let noOfTasks: number | null = currentTasks?.length;
     let uId: number = this._localStorageService.generateUId();
     if (currentTasks.find(task => task.id === uId)) uId = this._localStorageService.generateUId();

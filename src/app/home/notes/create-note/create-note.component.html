@@ -28,12 +28,12 @@
             <div class="mat-heading-1 text-mute mb-8">Description</div>
                 <ngx-editor-menu [editor]="descriptionEditor" [toolbar]="toolbar">
                 </ngx-editor-menu>
-                <ngx-editor [editor]="descriptionEditor" formControlName="description">
+                <ngx-editor [outputFormat]="'html'" [editor]="descriptionEditor" formControlName="description">
                 </ngx-editor>
         </form>
     </div>
 
-    <mat-dialog-actions class="p-0 mb-16" align="end">
+    <mat-dialog-actions class="p-0 mb-16 bg-back" align="end">
         <a mat-button routerLink="/home/notes" class="mr-8">Cancel</a>
         <button mat-raised-button (click)="submitForm()" color="primary">{{ formType === appValues.create ? 'Create' : 'Update' }}</button>
     </mat-dialog-actions>

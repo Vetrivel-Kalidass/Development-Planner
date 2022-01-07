@@ -6,15 +6,15 @@
             <div cdkDropList class="list-container" [cdkDropListData]="allTasks" (cdkDropListDropped)="drop($event)">
                 <div class="list-box" *ngFor="let task of allTasks; trackBy: trackByFn; let i = index" cdkDrag>
                   <div class="list-custom-placeholder" *cdkDragPlaceholder></div>
-                  <mat-expansion-panel [expanded]="indexExpanded == i" class="task-item hover-box-shadow-1-tile" disabled hideToggle [ngClass]="{ 'bg-disabled text-mute': task.completed }">
+                  <mat-expansion-panel #expPanel class="task-item hover-box-shadow-1-tile" disabled hideToggle [ngClass]="{ 'bg-disabled text-mute': task.completed }">
                       
-                      <div *ngIf="indexExpanded == i" [style.background]="getTagColor(task.tagId)" class="tag-bar"></div>
+                      <div [style.background]="getTagColor(task.tagId)" class="tag-bar"></div>
                       <mat-expansion-panel-header>
-                          <div *ngIf="indexExpanded !== i" [style.background]="getTagColor(task.tagId)" class="tag-bar-inner"></div>
+                          <div [style.background]="getTagColor(task.tagId)" class="tag-bar-inner"></div>
           
                           <mat-checkbox [checked]="task.completed" (change)="checkBoxChange(task)"></mat-checkbox>
                           <div class="details" [ngClass]="{ 'complete': task.completed }">
-                              <a (click)="togglePanels(i, task.description)">
+                              <a (click)="expPanel.toggle()">
                                   <div *ngIf="task.title" class="mat-headline-1 mb-0">{{ task.title }}</div>
                                   <div *ngIf="task.createdAt || task.dueDate" class="mat-caption text-mute mb-0">
                                       {{ (task.createdAt | date: 'mediumDate') || '' }} - {{ (task.dueDate | date: 'mediumDate') || 'Any Time' }}
@@ -60,7 +60,7 @@
             <div cdkDropList class="list-container" [cdkDropListData]="focusedTasks" (cdkDropListDropped)="drop($event)">
                     <div class="list-box" *ngFor="let task of focusedTasks; trackBy: trackByFn; let i = index" cdkDrag>
                       <div class="list-custom-placeholder" *cdkDragPlaceholder></div>
-                      <mat-expansion-panel #expPanel class="task-item hover-box-shadow-1-tile" disabled hideToggle [ngClass]="{ 'bg-disabled text-mute': task.completed }">
+                      <mat-expansion-panel #focusedExpPanel class="task-item hover-box-shadow-1-tile" disabled hideToggle [ngClass]="{ 'bg-disabled text-mute': task.completed }">
                           
                           <div [style.background]="getTagColor(task.tagId)" class="tag-bar"></div>
                           <mat-expansion-panel-header>
@@ -68,7 +68,7 @@
               
                               <mat-checkbox [checked]="task.completed" (change)="checkBoxChange(task)"></mat-checkbox>
                               <div class="details" [ngClass]="{ 'complete': task.completed }">
-                                  <a (click)="expPanel.toggle()">
+                                  <a (click)="focusedExpPanel.toggle()">
                                       <div *ngIf="task.title" class="mat-headline-1 mb-0">{{ task.title }}</div>
                                       <div *ngIf="task.createdAt || task.dueDate" class="mat-caption text-mute mb-0">
                                           {{ (task.createdAt | date: 'mediumDate') || '' }} - {{ (task.dueDate | date: 'mediumDate') || 'Any Time' }}

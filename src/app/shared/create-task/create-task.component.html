@@ -1,6 +1,11 @@
 <div class="form-container d-flex flex-col justify-content-between">
     <span>
-        <h2 mat-dialog-title class="mb-4">{{ formType === appValues.create ? 'Create' : 'Edit' }} Task</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 mat-dialog-title class="mb-0">{{ formType === appValues.create ? 'Create' : 'Edit' }} Task</h2>
+            <mat-slide-toggle [checked]="isCheckList" (change)="toggleCheckList()">
+                Check List
+            </mat-slide-toggle>
+        </div>
         <mat-divider class="mb-16"></mat-divider>
 
         <mat-dialog-content class="d-flex flex-col">
@@ -39,7 +44,7 @@
                 </mat-form-field>
                 <div class="d-flex mb-16">
                     <mat-checkbox class="mr-50" formControlName="completed">Complted task</mat-checkbox>
-                    <mat-checkbox formControlName="checkListType">Check List..?</mat-checkbox>
+                    <mat-checkbox [style.visibility]="'hidden'" formControlName="checkListType">Check List..?</mat-checkbox>
                 </div>
             </form>
 
@@ -70,7 +75,7 @@
     </span>
 
     <mat-dialog-actions align="end">
-        <button mat-button type="button" mat-dialog-close>Cancel</button>
+        <button mat-button type="button" (click)="cancel()">Cancel</button>
         <button mat-raised-button (click)="submitForm()" color="primary">{{ formType === appValues.create ? 'Create' : 'Update' }}</button>
     </mat-dialog-actions>
 </div>

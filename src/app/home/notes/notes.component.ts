@@ -37,8 +37,8 @@ export class NotesComponent implements OnInit, OnDestroy {
   }
 
   fetchNotes() {
-    this.notesSubs$ = this._noteService.allNotes.subscribe(tasks => {
-      this.allNotes = tasks;
+    this.notesSubs$ = this._noteService.allNotes.subscribe(notes => {
+      this.allNotes = notes;
       this.filteredNotes = this.allNotes?.length ? this.allNotes : [];
     });
   }
