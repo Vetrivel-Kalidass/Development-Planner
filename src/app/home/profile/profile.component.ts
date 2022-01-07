@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { map, Observable, Subscription } from 'rxjs';
-import { CommonService } from 'src/app/core/common.service';
+import { Subscription } from 'rxjs';
+import { ThemeService } from 'src/app/core/theme.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,16 +13,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
   darkModeSubs$: Subscription;
 
   constructor(
-    private _commonService: CommonService
+    private _themeService: ThemeService
   ) { 
-    this.darkModeSubs$ = this._commonService.currentTheme.subscribe(theme => this.isDarkMode = theme.darkMode);
+    this.darkModeSubs$ = this._themeService.currentTheme.subscribe(theme => this.isDarkMode = theme ? theme.selectedTheme.darkMode : false);
   }
 
   ngOnInit(): void {
   }
 
   toggleDarkMode() {
-    this._commonService.toggleDarkMode();
+    this._themeService.toggleDarkMode();
   }
 
   ngOnDestroy(): void {

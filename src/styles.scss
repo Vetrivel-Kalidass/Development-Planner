@@ -10,9 +10,11 @@
 
 @include mat-core();
 @include angular-material-theme($dynamic-light-app-theme);
+@include all-component-themes($dynamic-light-app-theme);
 
 .dark-mode {
   @include angular-material-theme($dynamic-dark-app-theme);
+  @include all-component-themes($dynamic-dark-app-theme);
 }
 
 @include angular-material-typography($dynamic-typography);

@@ -1,23 +1,49 @@
 import { Toolbar } from "ngx-editor";
-import { Theme } from "src/app/models";
+import { ThemeData } from "src/app/models";
 
 export enum AppValues {
     darkMode = 'dark-mode',
     tasks = "tasks",
     tags = "tags",
     notes = "notes",
+    themes = "themes",
     edit = 'edit',
     create = 'create',
     delete = 'delete',
     defaultTagColor = '#344d3a',
 };
 
-export const vkYTheme: Theme = {
-    id: 107,
-    name: "VK-Y-Theme",
-    primary: "",
-    accent: "",
-    darkMode: true
+export const DP_THEMES: ThemeData = {
+  selectedTheme: {
+    name: 'Golden',
+    keyValue: 'golden-theme',
+    primary: '#FFDE59',
+    accent: '#323232',
+    darkMode: false
+  },
+  availableThemes: [
+    {
+      name: 'Golden',
+      keyValue: 'golden-theme',
+      primary: '#FFDE59',
+      accent: '#323232',
+      darkMode: false
+    },
+    {
+        name: 'Purple-Amber',
+        keyValue: 'purple-amber-theme',
+        primary: '#673ab7',
+        accent: '#ffc107',
+        darkMode: false
+    },
+    {
+        name: 'Amber-Indigo',
+        keyValue: 'amber-indigo-theme',
+        primary: '#ffc107',
+        accent: '#3f51b5',
+        darkMode: false
+    },
+  ]
 }
 
 export const TEXT_EDITOR_CONFIG: Toolbar = [

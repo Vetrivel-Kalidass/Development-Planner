@@ -43,21 +43,5 @@ export interface AccountData {
     themeId?: number;
 }
 
-export interface ThemeItem {
-    id: number;
-    name: string;
-    primary: string;
-    secondary: string;
-    darkMode: boolean;
-}
-
 /**CONTENTS */
 export type FormType = AppValues.create | AppValues.edit;
-
-export interface Theme {
-    id?: number;
-    name: string;
-    primary: string;
-    accent: string;
-    darkMode: boolean;
-  }

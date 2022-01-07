@@ -444,7 +444,7 @@ mat-drawer.side-navbar {
 		}
 		mat-nav-list > a.mat-list-item.mat-elevation-z2 {
 			background-color: var(--theme-primary-500) !important;
-			color: rgba(0, 0, 0, 0.87) !important;
+			color: var(--theme-primary-contrast-500) !important;
 		}
 		mat-nav-list.sub-navigation-list {
 			max-height: calc(100vh - 350px);
