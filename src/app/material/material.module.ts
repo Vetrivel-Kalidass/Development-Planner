@@ -29,6 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatExpansionModule } from '@angular/material/expansion'; 
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const MaterialComponent = [
   MatCardModule,
@@ -59,6 +60,7 @@ const MaterialComponent = [
   MatCheckboxModule,
   MatBottomSheetModule,
   MatExpansionModule,
+  MatSlideToggleModule,
 ];
 
 @NgModule({

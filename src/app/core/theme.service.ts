@@ -23,7 +23,7 @@ export class ThemeService {
     this.fetchThemeData();
   }
 
-  get currentTheme(): Observable<ThemeData | null> {
+  get currentTheme(): Observable<ThemeData> {
     if (!this._currentTheme.value) {
       this.fetchThemeData();
     }
@@ -46,7 +46,6 @@ export class ThemeService {
       darkMode: !this._currentTheme.value.selectedTheme.darkMode
     };
     this.editTheme(toggledTheme);
-    this.applyTheme(toggledTheme);
   }
 
   createTheme(theme: Theme) {
@@ -88,16 +87,13 @@ export class ThemeService {
   }
 
   private fetchThemeData() {
-    const avlThemes: ThemeData | undefined = this._localStorageService.getLocalItem(AppValues.themes);
+    let avlThemes: ThemeData | undefined = this._localStorageService.getLocalItem(AppValues.themes);
     if (!avlThemes) {
       this._localStorageService.setLocalItem(AppValues.themes, DP_THEMES);
-      this._currentTheme.next(DP_THEMES);
-      this.setThemeData(DP_THEMES.availableThemes[1]);
+      avlThemes = DP_THEMES;
     }
-    else {
-      this._currentTheme.next(avlThemes);
-      this.setThemeData(avlThemes.availableThemes[1]);
-    }
+    this._currentTheme.next(avlThemes);
+    this.setThemeData(avlThemes.selectedTheme);
   }
 
   setThemeData(themeData: Theme) {

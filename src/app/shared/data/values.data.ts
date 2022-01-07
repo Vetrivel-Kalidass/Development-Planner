@@ -37,10 +37,10 @@ export const DP_THEMES: ThemeData = {
         darkMode: false
     },
     {
-        name: 'Amber-Indigo',
-        keyValue: 'amber-indigo-theme',
-        primary: '#ffc107',
-        accent: '#3f51b5',
+        name: 'Indigo-pink',
+        keyValue: 'indigo-pink-theme',
+        primary: '#3f51b5',
+        accent: '#e91e63',
         darkMode: false
     },
   ]
