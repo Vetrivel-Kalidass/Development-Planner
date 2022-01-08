@@ -7,9 +7,7 @@ Development planner is quick available task manager and notes maintianing web ap
 
 ## Development Planner
 
-<p align="center">
-  <img alt="DP in action" src="src/assets/images/dp_preview_image.png">
-</p>
+![dp_preview_img](https://user-images.githubusercontent.com/69761548/148632326-a8d686a0-78d4-47c5-8af8-1f2e022aad9b.png)
 
 ## Feature Lists
 
